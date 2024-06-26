@@ -1,0 +1,39 @@
+
+backgrounds:
+  old_hangar: assets/backgrounds/hangar1.png
+  base_entrance: assets/backgrounds/hangar2.png
+  salvage_rig_landing: assets/backgrounds/salvage_rig_landing.png
+
+characters:
+  dezmond_unknown:
+    displayName: "???"
+    speechColour: "#455e6d"
+    looks:
+      normal: assets/characters/ScavLeader.png
+      happy: assets/characters/ScavLeader.png
+      angry: assets/characters/ScavLeader.png
+  dezmond:
+    displayName: Dezmond
+    speechColour: "#455e6d"
+    looks:
+      normal: assets/characters/ScavLeader.png
+      happy: assets/characters/ScavLeader.png
+      angry: assets/characters/ScavLeader.png
+
+cgs:
+  old_pistol: assets/objects/OldPistol.png
+  scav_squad: assets/characters/Scavs.png
+
+music:
+  rollingCredits: assets/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
+  morningBGM: assets/audio/Evan_Schaeffer_-_03_-_Glow.mp3
+sfx:
+  ringtoneSFX: assets/audio/nokia6210-24-elise.mp3
+  ringtoneSFX2: assets/audio/alcatel-top_secret.mp3
+
+extra:
+  spritesheets:
+    rain: assets/ambient/rain.png 17 17
+    sakura: assets/ambient/sakura-petals.png 17 26
+    snowflakes: assets/ambient/snowflakes.png 17 17
+    snowflakes_large: assets/ambient/snowflakes_large.png 64 64
