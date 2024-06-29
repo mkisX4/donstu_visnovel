@@ -1,78 +1,38 @@
 start:
-  - play morningBGM:
-  - show old_hangar: WITH FADETOWHITE CONTINUE
-  - text: In an old dustry derelict hangar somewhere on in the borderlands of civilized space...
-  - show dezmond_unknown: normal AT CENTER WITH FADE
-  - dezmond_unknown says: Well-well, paint me impressed. There actualy was a lost soul out here.  
-  - wait: 300
-  - hide dezmond_unknown: WITH FADE CONTINUE
+  - play calm2:
+  - show near_the_shore: WITH FADETOWHITE CONTINUE
+  - text: Вот и подходит к концу летняя беззаботность - уже завтра начинается новый учебный год.
+  - text: Впрочем, это совершенно не повод тосковать. Хоть порою жизнь...
   - choice:
-    - "Remain calm":
-      - show dezmond_unknown: WITH FADE CONTINUE
-      - dezmond_unknown says: You're not going to try to run away or do anything else stupid? Smart choice. I suppose you want to know who I am and what's going to happen to you now?
-      - dezmond says: "So let's go in order: The name's Dezmond. Humble scav brigade leader."
-      - dezmond says: And you will be forced to come to our ship. Quickly and without further questions. It's in your best interest.
-      - choice:
-        - "Comply":
-          - var reisted: false
-          - hide dezmond_unknown: WITH FADE CONTINUE
-          - scene: hangar_outer
-        - "Try to resist":
-          - var resisted: true
-          - text: You glance around sharply and prepare to lunge at the man in front of you, but suddenly the shadows in the corners of the hangar stirred and with a clang, armored figures appeared in front of you.
-          - hide dezmond_unknown: WITH FADE CONTINUE
-          - show scav_squad: WITH FADE CONTINUE
-          - dezmond says: Perhaps I overestimated your intelligence. That's a shame. Unfortunately, you don't have a choice. If there's a need, these gentlemen will make sure you come nicely.
-          - text: Resisting an armed squad in armor alone is not only pointless, but deadly. Looks like you'll have to comply for now.
-          - hide scav_squad: WITH FADE CONTINUE
-          - scene: hangar_outer
-    - "Start to panic and do something stupid":
-      - text: In a fit of panic, you look around, trying to find shelter and figure out an escape route. Turning toward the rusted-out hulk of some machinery, you're about to run for your life.
-      - effect SHAKE:
-      - text: Before you can get to your target, you hear a squeezed clack and something hits you from behind on the shoulder and you feel your body stiffen with a steely grip of paralysis.
-      - text: You want to turn your head and see what hit you, but your body refuses to obey. Meanwhile, the stranger once again stood before you and started talking.
-      - show dezmond_unknown: WITH FADE CONTINUE
-      - dezmond_unknown says: We're pretty sharp, aren't we? I'm afraid it won't help you this time.
-      - dezmond says: The name's Dezmond. Me and my humble crew have come there to get you. Whether you like it or not.
-      - choice:
-        - "Comply":
-          - var resisted: true
-          - text: Gradually the numbness goes away. Nevertheless, the scavenger before you clearly did not come alone. Looks like we'll have to listen to him for now.
-          - dezmond says: Well, let's not waste any more time.
-          - scene: hangar_outer
-        - "Try to resist":
-          - var resisted: true
-          - var resisted_to_the_end: true
-          - hide dezmond_unknown: WITH FADE CONTINUE
-          - text: Gradually the numbness goes away. There may be more than one scavenger in front of you, but there's no way you can just give up like that!
-          - text: When you felt your body obeying you again you decided to throw yourself at the man in front of you and either die in an unequal fight or emerge victorious and use him as a hostage in bargaining for your freedom.
-          - effect SHAKE:
-          - show dezmond: WITH CUT CONTINUE
-          - zoom: 0.2
-          - hide dezmond: WITH CUT CONTINUE
-          - effect SHAKE:
-          - wait: 30
-          - effect SHAKE:
-          - show dezmond: WITH CUT CONTINUE
-          - effect SHAKE:
-          - text: It seems to you that you were able to overwhelm your opponent with precise blows, but at the last moment the opponent's figure disappeared from your sight.
-          - hide dezmond: WITH CUT CONTINUE
-          - effect SHAKE:
-          - text: A sharp pain pierced the back of your head and your eyes went black. You were unable to think clearly for a few seconds, but that was enough time for the heavy handcuffs to snap on your hands.
-          - show dezmond: WITH FADE CONTINUE
-          - text: Once again, the shady man was in front of you.
-          - dezmond says: Guess people like you don't want to give up so easily, huh? I almost want you on the crew.
-          - dezmond says: All right, let's go. We've already lost too much time.
-          - hide dezmond: WITH FADE CONDTINUE
-          - scene: hangar_outer
+    - "...Технаря...":
+      - var mc_type: technical
+      - text: ...да, жизнь технаря подкидывает весьма сложные задачки, но с ними порою даже бывает веселее!
+      - text: Впрочем, экзамены сданы, разум чист и свеж, а душа жаждет новых свершений.
+      - text: Так что в приподнятом расположении духа я направляюсь к себе в комнату. Нужно проверить, всё ли я собрал на завтра...
+    - "...Гуманитария...":
+      - var mc_type: humanitarian
+      - text: ...подикдывает лимоны, ещё и достаточно кислые, но лимонад-то сделать можно и из них. Всё не так уж плохо. Долгов с прошлого года нет, срочных дел - тоже.
+      - text: Кажется, скоро уже свечереет. Интересно, где мой портфель?..
+    - "...Дизайнера...":
+      - var mc_type: designer
+      - text: ...идёт не по намеченному пути, но поводов отчаиваться нет. Интересно, получится ли ещё раз поработать с той командой с хакатона? Интересные были ребята.
+      - text: Ох, ну и жара сегодня. Нужно, наверное, взять кофейку и потом заскочить к друзьям. На сегодня у нас D&D, пора уже закончить эту партию!
+    - "...Спортстмена...":
+      - var mc_type: sportsman
+      - text: ...бывает очень нелёгкой, но нет такой тяжести, что невозможно поднять! Так что все невзгоды должно встречать с усмешкой.
+      - text: Кстати, о тяжестях. Сегодня надо будет заглянуть в зал пораньше и лечь спать пораньше - завтра же на пары. Побежали!
+    - "...Химика...":
+      - var mc_type: chemist
+      - text: ...кажется очень сложной, но тем не менее - она крайне интересна. Хотя иногда, конечно, хотелось бы ещё пару часов сна в неё вместить...
+      - text: Что-то мысли о сне приходят уж сильно часто. Не к добру это. Пойду-ка лучше посплю.
+  - scene: theFirstMorning
 
-hangar_outer:
-  - play rollingCredits:
-  - show base_entrance: WITH FADE CONTINUE
-  - text: In the outer room of the hangar
-
+theFirstMorning:
+  - play calm1:
+  - show room_messy: WITH FADETOWHITE CONTINUE
+  - text: Ты {mc_type}, Гарри!
+  
 endGame:
-  - dezmond says normal: Quickstart over!
   - hide ALL:
   - effect ROLLINGCREDITS:
     endGame: true

@@ -1,15 +1,15 @@
-name: S.T.A.R.
+name: Live Donstu
 resolution:
-  - 800
-  - 600
+  - 1024
+  - 768
 assetCounter: 44
 config:
   hud:
     - id: default
       type: choices
       asset: asset31
-      x: 42
-      'y': 300
+      x: 128
+      'y': 360
       alignment: centered
       separation: 10
       sfx: none
@@ -27,8 +27,8 @@ config:
     - id: default
       type: messageBox
       asset: asset19
-      x: 40
-      'y': 449
+      x: 128
+      'y': 650
       sfx: none
       text:
         x: 24
@@ -36,10 +36,10 @@ config:
         style:
           font: fontsaudimat-mono
           fontSize: 20px
-          fill: '#89BAA8'
+          fill: '#FFFFFF'
           align: left
           wordWrap: true
-          wordWrapWidth: '550'
+          wordWrapWidth: '620'
       ctc:
         x: 570
         'y': 91
@@ -47,42 +47,42 @@ config:
     - id: default
       type: nameBox
       asset: asset20
-      x: 84
-      'y': 400
+      x: 650
+      'y': 585
       text:
         x: 0
         'y': 0
         style:
           font: fontsaudimat-mono
-          fontSize: 26px
+          fontSize: 24px
           fill: '#FFFFFF'
           align: left
           boundsAlignH: center
           boundsAlignV: middle
     - type: image
-      x: 640
-      'y': 468
+      x: 740
+      'y': 665
       asset: asset22
     - type: button
-      x: 646
-      'y': 474
+      x: 745
+      'y': 670
       asset: asset24
       binding: openMenu
       menu: settings
     - type: button
-      x: 688
-      'y': 474
+      x: 790
+      'y': 670
       asset: asset23
       binding: openMenu
       menu: saveload
     - type: button
-      x: 646
-      'y': 514
+      x: 745
+      'y': 713
       asset: asset26
       binding: auto
     - type: button
-      x: 688
-      'y': 514
+      x: 790
+      'y': 713
       asset: asset25
       binding: skip
   menus:
@@ -92,21 +92,21 @@ config:
         'y': 0
         asset: loaderbackground
       - type: music
-        asset: Evan_Schaeffer_-_01_-_Aqueduct
+        asset: menu_music
       - type: button
-        x: 77
-        'y': 452
+        x: 540
+        'y': 475
         asset: asset3
         binding: openMenu
         menu: saveload
       - type: button
-        x: 329
-        'y': 452
+        x: 620
+        'y': 340
         asset: asset4
         binding: start
       - type: button
-        x: 529
-        'y': 452
+        x: 565
+        'y': 612
         asset: asset5
         binding: openMenu
         menu: settings
@@ -116,86 +116,86 @@ config:
         'y': 0
         asset: asset16
       - type: label
-        x: 221
-        'y': 40
-        text: S.E.T.T.I.N.G.S
+        x: 256
+        'y': 80
+        text: Н А С Т Р О Й К И
         style:
           font: fontsaudimat-mono
           fontSize: 47px
-          fill: '#B0B0B0'
+          fill: '#ffffff'
           boundsAlignH: left
           boundsAlignV: top
       - type: label
-        x: 100
-        'y': 175
-        text: music volume
+        x: 380
+        'y': 170
+        text: Громкость музыки
         style:
           font: fontsaudimat-mono
-          fontSize: 33px
-          fill: '#6D6C6C'
+          fontSize: 28px
+          fill: '#ffffff'
           boundsAlignH: left
           boundsAlignV: top
       - type: label
-        x: 109
-        'y': 325
-        text: sfx volume
+        x: 374
+        'y': 266
+        text: Громкость эффектов
         style:
           font: fontsaudimat-mono
-          fontSize: 33px
-          fill: '#6D6C6C'
+          fontSize: 28px
+          fill: '#ffffff'
           boundsAlignH: left
           boundsAlignV: top
       - type: label
-        x: 503
-        'y': 325
-        text: auto speed
+        x: 384
+        'y': 362
+        text: Скорость текста
         style:
           font: fontsaudimat-mono
-          fontSize: 33px
-          fill: '#6D6C6C'
+          fontSize: 28px
+          fill: '#ffffff'
           boundsAlignH: left
           boundsAlignV: top
       - type: label
-        x: 503
-        'y': 175
-        text: text speed
+        x: 344
+        'y': 458
+        text: Скорость автопрокрутки
         style:
           font: fontsaudimat-mono
-          fontSize: 33px
-          fill: '#6D6C6C'
+          fontSize: 28px
+          fill: '#ffffff'
           boundsAlignH: left
           boundsAlignV: top
       - type: slider
-        x: 74
-        'y': 220
+        x: 300
+        'y': 202
         asset: asset12
         binding: changeUserPreference
         userPreference: bgmv
         mask: horizontal
       - type: slider
-        x: 74
-        'y': 370
+        x: 300
+        'y': 298
         asset: asset12
         binding: changeUserPreference
         userPreference: sfxv
         mask: horizontal
       - type: slider
-        x: 463
-        'y': 220
+        x: 300
+        'y': 394
         asset: asset12
         binding: changeUserPreference
         userPreference: textSpeed
         mask: horizontal
       - type: slider
-        x: 463
-        'y': 370
+        x: 300
+        'y': 490
         asset: asset12
         binding: changeUserPreference
         userPreference: autoSpeed
         mask: horizontal
       - type: button
-        x: 616
-        'y': 506
+        x: 380
+        'y': 625
         asset: asset17
         binding: return
     saveload:
@@ -204,8 +204,8 @@ config:
         'y': 0
         asset: asset16
       - type: saveSlot
-        x: 71
-        'y': 168
+        x: 188
+        'y': 180
         asset: asset18
         slot: '0'
         thumbnail:
@@ -214,8 +214,8 @@ config:
           width: 154
           height: 110
       - type: saveSlot
-        x: 303
-        'y': 168
+        x: 408
+        'y': 180
         asset: asset18
         slot: '1'
         thumbnail:
@@ -224,8 +224,8 @@ config:
           width: 154
           height: 110
       - type: saveSlot
-        x: 531
-        'y': 168
+        x: 628
+        'y': 180
         asset: asset18
         slot: '2'
         thumbnail:
@@ -234,54 +234,54 @@ config:
           width: 154
           height: 110
       - type: label
-        x: 222
-        'y': 40
-        text: S.A.V.E.L.O.A.D
+        x: 290
+        'y': 80
+        text: Загрузка сохранения
         style:
           font: fontsaudimat-mono
           fontSize: 47px
-          fill: '#B0B0B0'
+          fill: '#ffffff'
           boundsAlignH: left
           boundsAlignV: top
       - type: button
-        x: 120
-        'y': 340
+        x: 188
+        'y': 400
         asset: asset39
         binding: save
         slot: '0'
       - type: button
-        x: 120
-        'y': 408
+        x: 188
+        'y': 500
         asset: asset40
         binding: load
         slot: '0'
       - type: button
-        x: 353
-        'y': 340
+        x: 408
+        'y': 400
         asset: asset39
         binding: save
         slot: '1'
       - type: button
-        x: 353
-        'y': 408
+        x: 408
+        'y': 500
         asset: asset40
         binding: load
         slot: '1'
       - type: button
-        x: 580
-        'y': 340
+        x: 628
+        'y': 400
         asset: asset39
         binding: save
         slot: '2'
       - type: button
-        x: 580
-        'y': 408
+        x: 628
+        'y': 500
         asset: asset40
         binding: load
         slot: '2'
       - type: button
-        x: 616
-        'y': 506
+        x: 380
+        'y': 625
         asset: asset17
         binding: return
 assets:
@@ -308,58 +308,58 @@ assets:
     loading-bar:
       name: loading-bar
       fileName: loaderloading-bar.png
-      w: 578
-      h: 82
+      w: 500
+      h: 128
     asset3:
       name: asset3
       fileName: mainasset3.png
-      w: 199
-      h: 82
+      w: 400
+      h: 128
     asset4:
       name: asset4
       fileName: mainasset4.png
-      w: 143
-      h: 82
+      w: 256
+      h: 128
     asset5:
       name: asset5
       fileName: mainasset5.png
-      w: 199
-      h: 82
+      w: 360
+      h: 128
     asset12:
       name: asset12
       fileName: settingsasset12.png
-      w: 256
-      h: 53
+      w: 384
+      h: 64
     asset17:
       name: asset17
       fileName: saveloadasset17.png
-      w: 163
-      h: 82
+      w: 240
+      h: 128
     asset21:
       name: asset21
       fileName: hudasset21.png
-      w: 19
+      w: 20
       h: 20
     asset23:
       name: asset23
       fileName: hudasset23.png
-      w: 41
-      h: 39
+      w: 43
+      h: 42
     asset24:
       name: asset24
       fileName: hudasset24.png
-      w: 41
-      h: 39
+      w: 43
+      h: 42
     asset25:
       name: asset25
       fileName: hudasset25.png
-      w: 41
-      h: 39
+      w: 43
+      h: 42
     asset26:
       name: asset26
       fileName: hudasset26.png
-      w: 41
-      h: 39
+      w: 43
+      h: 42
     asset31:
       name: asset31
       fileName: hudasset31.png
@@ -373,21 +373,21 @@ assets:
     asset39:
       name: asset39
       fileName: saveloadasset39.png
-      w: 103
-      h: 53
+      w: 210
+      h: 90
     asset40:
       name: asset40
       fileName: saveloadasset40.png
-      w: 103
-      h: 53
+      w: 210
+      h: 90
   fonts:
     fontsaudimat-mono:
       fileName: fontsfontsaudimat-mono.ttf
       name: fontsaudimat-mono
   audio:
-    Evan_Schaeffer_-_01_-_Aqueduct:
-      fileName: audioEvan_Schaeffer_-_01_-_Aqueduct.mp3
-      name: Evan_Schaeffer_-_01_-_Aqueduct
+    menu_music:
+      fileName: main_menu_theme.mp3
+      name: menu_music
       type: music
 madeWithRenJSBuilder: "2.0"
 assetsPath: assets/gui/

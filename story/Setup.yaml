@@ -1,35 +1,41 @@
 
 backgrounds:
-  old_hangar: assets/backgrounds/hangar1.png
-  base_entrance: assets/backgrounds/hangar2.png
-  salvage_rig_landing: assets/backgrounds/salvage_rig_landing.png
+  university_main: assets/backgrounds/university_main.png
+  un_park: assets/backgrounds/alley.png
+  un_park_tree: assets/backgrounds/tree.png
+  un_room_s1: assets/backgrounds/room_s1.png
+  un_stairs_f1: assets/backgrounds/stairs.png
+  room_messy: assets/backgrounds/room_messy.png
+  near_the_shore: assets/backgrounds/shorewalkingzone.png
 
 characters:
-  dezmond_unknown:
-    displayName: "???"
-    speechColour: "#455e6d"
+  average_male_student:
+    displayName: "FriendlyStudent"
+    speechColour: "#FFFFFF"
     looks:
-      normal: assets/characters/ScavLeader.png
-      happy: assets/characters/ScavLeader.png
-      angry: assets/characters/ScavLeader.png
+      normal: assets/characters/placeholder_male.png
+      happy: assets/characters/placeholder_male.png
+      angry: assets/characters/placeholder_male.png
   dezmond:
-    displayName: Dezmond
-    speechColour: "#455e6d"
+    displayName: "CheerfulStudent"
+    speechColour: "#FFFFFF"
     looks:
-      normal: assets/characters/ScavLeader.png
-      happy: assets/characters/ScavLeader.png
-      angry: assets/characters/ScavLeader.png
+      normal: assets/characters/placeholder_female.png
+      happy: assets/characters/placeholder_female.png
+      angry: assets/characters/placeholder_female.png
 
 cgs:
-  old_pistol: assets/objects/OldPistol.png
-  scav_squad: assets/characters/Scavs.png
+  
 
 music:
-  rollingCredits: assets/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
-  morningBGM: assets/audio/Evan_Schaeffer_-_03_-_Glow.mp3
+  calm1: assets/audio/calm1.mp3
+  calm2: assets/audio/calm2.mp3
+  mystic1: assets/audio/mystic1.mp3
+  mystic2: assets/audio/mystic2.mp3
+  tense1: assets/audio/tense1.mp3
+  trippy: assets/audio/trippy.mp3
 sfx:
-  ringtoneSFX: assets/audio/nokia6210-24-elise.mp3
-  ringtoneSFX2: assets/audio/alcatel-top_secret.mp3
+  
 
 extra:
   spritesheets:

@@ -1,7 +1,7 @@
 const RenJSConfig =  {
-  'name': 'S.T.A.R.',
-  'w': 800,
-  'h': 600,
+  'name': 'Live Donstu',
+  'w': 1024,
+  'h': 768,
   'renderer': Phaser.AUTO, // become renderer
   'scaleMode': Phaser.ScaleManager.SHOW_ALL,
   'loadingScreen': {
@@ -9,12 +9,12 @@ const RenJSConfig =  {
     'loadingBar': {
       'asset': 'assets/gui/loaderloading-bar.png',
       'position': {
-        'x': 109,
-        'y': 458
+        'x': 256,
+        'y': 460
       },
       'size': {
-        'w': 578,
-        'h': 82
+        'w': 500,
+        'h': 128
       }
     }
   },
