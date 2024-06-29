@@ -18,7 +18,7 @@ config:
         x: 0
         'y': 0
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 32px
           fill: '#FFFFFF'
           align: left
@@ -34,8 +34,9 @@ config:
         x: 24
         'y': 24
         style:
-          font: fontsaudimat-mono
-          fontSize: 20px
+          font: gooseberry
+          fontSize: 28px
+          lineheight: -0.5px
           fill: '#FFFFFF'
           align: left
           wordWrap: true
@@ -53,7 +54,7 @@ config:
         x: 0
         'y': 0
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 24px
           fill: '#FFFFFF'
           align: left
@@ -120,7 +121,7 @@ config:
         'y': 80
         text: Н А С Т Р О Й К И
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 47px
           fill: '#ffffff'
           boundsAlignH: left
@@ -130,7 +131,7 @@ config:
         'y': 170
         text: Громкость музыки
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 28px
           fill: '#ffffff'
           boundsAlignH: left
@@ -140,7 +141,7 @@ config:
         'y': 266
         text: Громкость эффектов
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 28px
           fill: '#ffffff'
           boundsAlignH: left
@@ -150,7 +151,7 @@ config:
         'y': 362
         text: Скорость текста
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 28px
           fill: '#ffffff'
           boundsAlignH: left
@@ -160,7 +161,7 @@ config:
         'y': 458
         text: Скорость автопрокрутки
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 28px
           fill: '#ffffff'
           boundsAlignH: left
@@ -238,7 +239,7 @@ config:
         'y': 80
         text: Загрузка сохранения
         style:
-          font: fontsaudimat-mono
+          font: gooseberry
           fontSize: 47px
           fill: '#ffffff'
           boundsAlignH: left
@@ -381,9 +382,9 @@ assets:
       w: 210
       h: 90
   fonts:
-    fontsaudimat-mono:
-      fileName: fontsfontsaudimat-mono.ttf
-      name: fontsaudimat-mono
+    gooseberry:
+      fileName: fontsgooseberry.ttf
+      name: gooseberry
   audio:
     menu_music:
       fileName: main_menu_theme.mp3

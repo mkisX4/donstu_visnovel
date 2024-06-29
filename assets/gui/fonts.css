@@ -1,12 +1,10 @@
-
-
       @font-face {
 
-          font-family: 'fontsaudimat-mono';
+          font-family: 'gooseberry';
 
-          src: url('/assets/gui/fontsfontsaudimat-mono.ttf');
+          src: url('/assets/gui/gooseberry.otf');
 
-          src: url('/assets/gui/fontsfontsaudimat-mono.ttf').format('truetype');
+          src: url('/assets/gui/gooseberry.otf');
 
           font-weight: normal;
 
