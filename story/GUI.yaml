@@ -32,15 +32,15 @@ config:
       sfx: none
       text:
         x: 24
-        'y': 24
+        'y': 4
         style:
           font: gooseberry
-          fontSize: 28px
+          fontSize: 26px
           lineheight: -0.5px
           fill: '#FFFFFF'
           align: left
           wordWrap: true
-          wordWrapWidth: '620'
+          wordWrapWidth: '600'
       ctc:
         x: 570
         'y': 91

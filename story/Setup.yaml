@@ -5,8 +5,14 @@ backgrounds:
   un_park_tree: assets/backgrounds/tree.png
   un_room_s1: assets/backgrounds/room_s1.png
   un_stairs_f1: assets/backgrounds/stairs.png
-  room_messy: assets/backgrounds/room_messy.png
   near_the_shore: assets/backgrounds/shorewalkingzone.png
+
+  student_room_technical: assets/backgrounds/dorm_rooms/student_room_technical.png
+  student_room_humanitarian: assets/backgrounds/dorm_rooms/student_room_humanitarian.png
+  student_room_designer: assets/backgrounds/dorm_rooms/student_room_designer.png
+  student_room_sportsman: assets/backgrounds/dorm_rooms/student_room_sportsman.png
+  student_room_chemist: assets/backgrounds/dorm_rooms/student_room_chemist.png
+  
 
 characters:
   average_male_student:
@@ -16,7 +22,7 @@ characters:
       normal: assets/characters/placeholder_male.png
       happy: assets/characters/placeholder_male.png
       angry: assets/characters/placeholder_male.png
-  dezmond:
+  average_female_student:
     displayName: "CheerfulStudent"
     speechColour: "#FFFFFF"
     looks:

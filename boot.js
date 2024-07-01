@@ -1,7 +1,7 @@
 const RenJSConfig =  {
   'name': 'Live Donstu',
   'w': 1024,
-  'h': 768,
+  'h': 760  ,
   'renderer': Phaser.AUTO, // become renderer
   'scaleMode': Phaser.ScaleManager.SHOW_ALL,
   'loadingScreen': {

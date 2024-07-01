@@ -29,9 +29,30 @@ start:
 
 theFirstMorning:
   - play calm1:
-  - show room_messy: WITH FADETOWHITE CONTINUE
-  - text: Ты {mc_type}, Гарри!
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADE CONTINUE
+    - text: Вот и я и дома. Так, всё на месте, можно и выдвигаться.
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADE CONTINUE
+    - text: Вот и я и дома. Так, всё на месте, можно и выдвигаться.
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADE CONTINUE
+    - text:Вот и я и дома. Так, всё на месте, можно и выдвигаться.
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADE CONTINUE
+    - text: Вот и я и дома. Так, всё на месте, можно и выдвигаться.
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADE CONTINUE
+    - text: Вот и я и дома. Так, всё на месте, можно и выдвигаться.
+  - var day: 1
+  - var time: 1
+  - scene: global_map
   
+global_map:
+  - play calm2:
+  - show un_stairs_f1: WITH FADE CONTINUE
+  - text: Сейчас у нас день {day}
+
 endGame:
   - hide ALL:
   - effect ROLLINGCREDITS:
