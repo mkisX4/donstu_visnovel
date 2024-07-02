@@ -25,9 +25,10 @@ start:
       - var mc_type: chemist
       - text: ...кажется очень сложной, но тем не менее - она крайне интересна. Хотя иногда, конечно, хотелось бы ещё пару часов сна в неё вместить...
       - text: Что-то мысли о сне приходят уж сильно часто. Не к добру это. Пойду-ка лучше посплю.
-  - scene: theFirstMorning
+  - scene: theFirstHomeRest
 
-theFirstMorning:
+#================================Initial Scenes
+theFirstHomeRest:
   - play calm1:
   - if ({mc_type} == 'technical'):
     - show student_room_technical: WITH FADE CONTINUE
@@ -49,10 +50,112 @@ theFirstMorning:
   - scene: global_map
   
 global_map:
+  - if ({time} > 3):
+      - var day: "{day} + 1"
+      - var time: 1
+      - scene: endGame
   - play calm2:
   - show un_stairs_f1: WITH FADE CONTINUE
   - text: Сейчас у нас день {day}
+  - choice:
+    - "Сыграть в 128":
+      - scene: OneHundredTwentyEight
+    - "Сыграть в СловоСбор":
+      - scene: AssembleWords
+    - "Сыграть в ПоискРазличий":
+      - scene: SpotTheDifference
+    - "Сыграть в КликерСпорт":
+      - scene: SportClicker
+    - "Сыграть в Химика":
+      - scene: Chemist
 
+#================================Game Scenes
+OneHundredTwentyEight:
+  - text: Добро пожаловать в игру 128!
+  - choice:
+    - "Я победитель!":
+      - var time: "{time} + 1"
+      - scene: global_map
+    - "Ну почти...":
+      - var time: "{time} + 1"
+      - scene: global_map
+
+AssembleWords:
+  - text: Добро пожаловать в игру СловоСбор!
+  - choice:
+    - "Я победитель!":
+      - var time: "{time} + 1"
+      - scene: global_map
+    - "Ну почти...":
+      - var time: "{time} + 1"
+      - scene: global_map
+
+SpotTheDifference:
+  - text: Добро пожаловать в игру ПоискРазличий!
+  - choice:
+    - "Я победитель!":
+      - var time: "{time} + 1"
+      - scene: global_map
+    - "Ну почти...":
+      - var time: "{time} + 1"
+      - scene: global_map
+
+SportClicker:
+  - text: Добро пожаловать в игру КликерСпорт!
+  - choice:
+    - "Я победитель!":
+      - var time: "{time} + 1"
+      - scene: global_map
+    - "Ну почти...":
+      - var time: "{time} + 1"
+      - scene: global_map
+
+Chemist:
+  - text: Добро пожаловать в игру Химик!
+  - choice:
+    - "Я победитель!":
+      - var time: "{time} + 1"
+      - scene: global_map
+    - "Ну почти...":
+      - var time: "{time} + 1"
+      - scene: global_map
+
+#================================Events Scenes
+#================Morning Scenes
+morning_walk_1:
+  - play calm2:
+  - show university_main: WITH FADE CONTINUE
+  - text: First walk!
+  - var time: "{time} + 1"
+  - scene: global_map
+
+morning_walk_2:
+  - play calm2:
+  - show un_park1: WITH FADE CONTINUE
+  - text: Second walk!
+  - var time: "{time} + 1"
+  - scene: global_map
+
+morning_walk_3:
+  - play calm2:
+  - show running_track: WITH FADE CONTINUE
+  - text: Third walk!
+  - var time: "{time} + 1"
+  - scene: global_map
+
+#================Evening Scenes
+evening_rest1:
+  - play mystic1:
+  - show tree: WITH FADE CONTINUE
+  - text: First rest!
+  - var time: "{time} + 1"
+  - scene: global_map
+
+
+#================================Dream Scenes
+
+
+#================================Ending Scenes
 endGame:
   - hide ALL:
   - effect ROLLINGCREDITS:
