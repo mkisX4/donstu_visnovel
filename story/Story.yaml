@@ -1,4 +1,7 @@
 start:
+  - var study: 5
+  - var happy: 5
+  - var is_game_won: false
   - play calm2:
   - show near_the_shore: WITH FADETOWHITE CONTINUE
   - text: Вот и подходит к концу летняя беззаботность - уже завтра начинается новый учебный год.
@@ -60,28 +63,41 @@ global_map:
   - choice:
     - "Сыграть в 128":
       - scene: OneHundredTwentyEight
-    - "Сыграть в СловоСбор":
+    - "Сыграть в СловоСбор [placeholder]":
       - scene: AssembleWords
     - "Сыграть в ПоискРазличий":
       - scene: SpotTheDifference
     - "Сыграть в КликерСпорт":
       - scene: SportClicker
-    - "Сыграть в Химика":
+    - "Сыграть в Химика [placeholder]":
       - scene: Chemist
 
 #================================Game Scenes
 OneHundredTwentyEight:
-  - text: Добро пожаловать в игру 128!
-  - choice:
-    - "Я победитель!":
-      - var time: "{time} + 1"
-      - scene: global_map
-    - "Ну почти...":
-      - var time: "{time} + 1"
-      - scene: global_map
+  - hide ALL: WITH FADE
+  - call OneHundredTwentyEight_game:
+  - if ({is_game_won}):
+    - show un_hall1: WITH FADE CONTINUE
+    - text: Отлично, с этим разобрались! Фух, теперь можно и прогуляться.
+    - var study: "{study + 5}"
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
+  - else:
+    - show un_hall1: WITH FADETOWHITE CONTINUE
+    - text: Уф... Что-то каша в голове. О чём вообще препод говорил?..
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
 
 AssembleWords:
+  - hide ALL: WITH FADE
   - text: Добро пожаловать в игру СловоСбор!
+  - text: К сожалеиню, пока что эта игра находится в разработке, поэтому сейчас тут заглушка.
   - choice:
     - "Я победитель!":
       - var time: "{time} + 1"
@@ -91,7 +107,8 @@ AssembleWords:
       - scene: global_map
 
 SpotTheDifference:
-  - text: Добро пожаловать в игру ПоискРазличий!
+  - hide ALL: WITH FADE
+  - call SpotTheDifference_game:
   - choice:
     - "Я победитель!":
       - var time: "{time} + 1"
@@ -101,6 +118,7 @@ SpotTheDifference:
       - scene: global_map
 
 SportClicker:
+  - hide ALL: WITH FADE
   - text: Добро пожаловать в игру КликерСпорт!
   - choice:
     - "Я победитель!":
@@ -111,7 +129,9 @@ SportClicker:
       - scene: global_map
 
 Chemist:
+  - hide ALL: WITH FADE
   - text: Добро пожаловать в игру Химик!
+  - text: К сожалеиню, пока что эта игра находится в разработке, поэтому сейчас тут заглушка.
   - choice:
     - "Я победитель!":
       - var time: "{time} + 1"

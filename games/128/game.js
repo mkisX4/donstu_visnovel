@@ -1,6 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const board = document.getElementById("board");
-    const resetButton = document.getElementById("reset-button");
+class OneHundredTwentyEight_game extends RenJS.Plugin {
+    onCall(){
+    const TheGame = this.game
+    TheGame.canvas.style.display = "none";
+    const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[0];
+    gameBody.style.display = "block";
+    const board = gameBody.getElementsByTagName("div")[0];
+    //const resetButton = document.getElementById("reset-button");
     const size = 4;
     let cells = [];
     let hasWon = false;
@@ -56,7 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Display win message
         if (hasWon) {
-            setTimeout(() => alert("Победа :)"), 100);
+            gameBody.style.display = "none";
+            TheGame.managers.logic.vars["is_game_won"] = true;
+            TheGame.canvas.style.display = "block";
+            TheGame.resolveAction();
         }
     }
 
@@ -88,10 +96,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Display game over message
-        setTimeout(() => alert("Попробуй еще раз :("), 100);
+
+        gameBody.style.display = "none";
+        this.game.canvas.style.display = "block";
+        this.game.resolveAction();
     }
 
-    document.addEventListener("keydown", (e) => {
+    gameBody.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") move("left");
         if (e.key === "ArrowRight") move("right");
         if (e.key === "ArrowUp") move("up");
@@ -105,7 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
     hammer.on("swipeup", () => move("up"));
     hammer.on("swipedown", () => move("down"));
 
-    resetButton.addEventListener("click", createBoard);
-
+    //resetButton.addEventListener("click", createBoard);
     createBoard();
-});
+}
+}
+
+RenJSGame.addPlugin('OneHundredTwentyEight_game',OneHundredTwentyEight_game)
