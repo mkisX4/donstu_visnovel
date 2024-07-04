@@ -1,28 +1,46 @@
 
 backgrounds:
   university_main: assets/backgrounds/university_main.png
-  un_park: assets/backgrounds/alley.png
-  un_park_tree: assets/backgrounds/tree.png
-  un_room_s1: assets/backgrounds/room_s1.png
   un_stairs_f1: assets/backgrounds/stairs.png
-  room_messy: assets/backgrounds/room_messy.png
+  un_hall1: assets/backgrounds/hall1.png
+  un_room_s1: assets/backgrounds/room_s1.png
+  un_room_s2: assets/backgrounds/pc_room.png
+  cyber_room: assets/backgrounds/cyberroom.png
+  running_track: assets/backgrounds/sporthalle.png
+  un_park1: assets/backgrounds/alley.png
+  un_park2: assets/backgrounds/park.png
+  un_park_tree: assets/backgrounds/tree.png
   near_the_shore: assets/backgrounds/shorewalkingzone.png
+
+  student_room_technical: assets/backgrounds/dorm_rooms/student_room_technical.png
+  student_room_humanitarian: assets/backgrounds/dorm_rooms/student_room_humanitarian.png
+  student_room_designer: assets/backgrounds/dorm_rooms/student_room_designer.png
+  student_room_sportsman: assets/backgrounds/dorm_rooms/student_room_sportsman.png
+  student_room_chemist: assets/backgrounds/dorm_rooms/student_room_chemist.png
+  
 
 characters:
   average_male_student:
-    displayName: "FriendlyStudent"
+    displayName: "Oddy"
     speechColour: "#FFFFFF"
     looks:
       normal: assets/characters/placeholder_male.png
       happy: assets/characters/placeholder_male.png
       angry: assets/characters/placeholder_male.png
-  dezmond:
-    displayName: "CheerfulStudent"
+  average_female_student:
+    displayName: "Maddy"
     speechColour: "#FFFFFF"
     looks:
       normal: assets/characters/placeholder_female.png
       happy: assets/characters/placeholder_female.png
       angry: assets/characters/placeholder_female.png
+  old_professor :
+    displayName: "Professor"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/placeholder_teacher.png
+      happy: assets/characters/placeholder_teacher.png
+      angry: assets/characters/placeholder_teacher.png
 
 cgs:
   
