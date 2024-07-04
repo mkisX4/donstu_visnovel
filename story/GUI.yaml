@@ -95,19 +95,19 @@ config:
       - type: music
         asset: menu_music
       - type: button
-        x: 540
+        x: 600
         'y': 475
         asset: asset3
         binding: openMenu
         menu: saveload
       - type: button
-        x: 620
+        x: 600
         'y': 340
         asset: asset4
         binding: start
       - type: button
-        x: 565
-        'y': 612
+        x: 600
+        'y': 615
         asset: asset5
         binding: openMenu
         menu: settings
@@ -319,12 +319,12 @@ assets:
     asset4:
       name: asset4
       fileName: mainasset4.png
-      w: 256
+      w: 400
       h: 128
     asset5:
       name: asset5
       fileName: mainasset5.png
-      w: 360
+      w: 400
       h: 128
     asset12:
       name: asset12
