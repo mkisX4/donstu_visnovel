@@ -1,4 +1,7 @@
 start:
+  - var study: 5
+  - var happy: 5
+  - var is_game_won: false
   - play calm2:
   - show near_the_shore: WITH FADETOWHITE CONTINUE
   - text: Вот и подходит к концу летняя беззаботность - уже завтра начинается новый учебный год.
@@ -53,35 +56,62 @@ global_map:
   - if ({time} > 3):
       - var day: "{day} + 1"
       - var time: 1
-      - scene: endGame
+      - if ({day} > 5):
+        - scene: endGame
   - play calm2:
   - show un_stairs_f1: WITH FADE CONTINUE
-  - text: Сейчас у нас день {day}
+  - text: Пока это плейсхолдер карты. Чего бы выжелали?
   - choice:
-    - "Сыграть в 128":
-      - scene: OneHundredTwentyEight
-    - "Сыграть в СловоСбор":
-      - scene: AssembleWords
-    - "Сыграть в ПоискРазличий":
-      - scene: SpotTheDifference
-    - "Сыграть в КликерСпорт":
-      - scene: SportClicker
-    - "Сыграть в Химика":
-      - scene: Chemist
+    - "Игры!":
+      - choice:
+        - "Сыграть в 128":
+          - scene: OneHundredTwentyEight
+        - "Сыграть в СловоСбор [placeholder]":
+          - scene: AssembleWords
+        - "Сыграть в ПоискРазличий":
+          - scene: SpotTheDifference
+        - "Сыграть в КликерСпорт":
+          - scene: SportClicker
+        - "Сыграть в Химика [placeholder]":
+          - scene: Chemist
+    - "Прогулки!":
+      - choice:
+        - "Утренние!":
+          - choice:
+            - "Утро1":
+              - scene: morning_walk_1
+            - "Утро2":
+              - scene: morning_walk_2
+            - "Утро3":
+              - scene: morning_walk_3
+  
 
 #================================Game Scenes
 OneHundredTwentyEight:
-  - text: Добро пожаловать в игру 128!
-  - choice:
-    - "Я победитель!":
-      - var time: "{time} + 1"
-      - scene: global_map
-    - "Ну почти...":
-      - var time: "{time} + 1"
-      - scene: global_map
+  - hide ALL: WITH FADE
+  - call OneHundredTwentyEight_game:
+  - if ({is_game_won}):
+    - show un_hall1: WITH FADE CONTINUE
+    - text: Отлично, с этим разобрались! Фух, теперь можно и прогуляться.
+    - var study: "{study + 5}"
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
+  - else:
+    - show un_hall1: WITH FADETOWHITE CONTINUE
+    - text: Уф... Что-то каша в голове. О чём вообще препод говорил?..
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
 
 AssembleWords:
+  - hide ALL: WITH FADE
   - text: Добро пожаловать в игру СловоСбор!
+  - text: К сожалеиню, пока что эта игра находится в разработке, поэтому сейчас тут заглушка.
   - choice:
     - "Я победитель!":
       - var time: "{time} + 1"
@@ -91,16 +121,13 @@ AssembleWords:
       - scene: global_map
 
 SpotTheDifference:
-  - text: Добро пожаловать в игру ПоискРазличий!
-  - choice:
-    - "Я победитель!":
-      - var time: "{time} + 1"
-      - scene: global_map
-    - "Ну почти...":
-      - var time: "{time} + 1"
-      - scene: global_map
+  - hide ALL: WITH FADE
+  - call SpotTheDifference_game: 
+    day: day
+  - text: Hello there!
 
 SportClicker:
+  - hide ALL: WITH FADE
   - text: Добро пожаловать в игру КликерСпорт!
   - choice:
     - "Я победитель!":
@@ -111,7 +138,9 @@ SportClicker:
       - scene: global_map
 
 Chemist:
+  - hide ALL: WITH FADE
   - text: Добро пожаловать в игру Химик!
+  - text: К сожалеиню, пока что эта игра находится в разработке, поэтому сейчас тут заглушка.
   - choice:
     - "Я победитель!":
       - var time: "{time} + 1"
@@ -124,22 +153,82 @@ Chemist:
 #================Morning Scenes
 morning_walk_1:
   - play calm2:
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADE CONTINUE
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADE CONTINUE
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADE CONTINUE
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADE CONTINUE
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADE CONTINUE
+  - text: Солнце, преломляясь через стекло, создавало бегущих зайчиков на стене. Они как маленькие будильники всегда оповещали меня об утре, что уже наступило.
+  - text: Сегодня я решил начать этот день с прогулки по набережной.
   - show university_main: WITH FADE CONTINUE
-  - text: First walk!
+  - text: Там всегда свежо и тихо в ранние часы, так как все спешат на работу, поэтому можно насладиться одиночеством и рекой.
+  - hide ALL: WITH FADE CONTINUE
+  - text: Я спускался по улице вниз, прямо к мостовой, что была выложена вдоль кромки воды.
+  - text: На правом берегу нельзя было присесть на краю и свесить ножки - слишком высоко был сделан берег, но даже так я ощущал бриз.
+  - show near_the_shore: WITH FADETOWHITE CONTINUE
+  - text: Единственным шумом стали волны, бьющиеся о камни.
+  - text: Моя дорога представляла собой спуск от ДГТУ по улицам, а затем я шел вдоль реки, делая крюк обратно. Моей любимой частью была, конечно же, сама набережная.
+  - text: Идя по ней, я замечал, как много людей гуляют со своими питомцами, парочек, решивших, как и я, начать свой день с прогулки.
+  - text: Вода в реке отражала солнечные лучи и окрашивала все вокруг в золотые оттенки.
+  - effect SHAKE:
+  - text: Я остановился, чтобы опуститься на лавочку. Иногда не хватает умиротворения, чтобы просто посидеть, подумать о своем, без суеты, слушая звуки природы или тихие разговоры прохожих.
+  - text: Утренняя прогулка, дает время настроиться на день неторопливо.
+  - effect SHAKE:
+  - text: Время идти назад. Где-то вдалеке загудела машина, по мостовой зашагало большелюдей. Город почти проснулся, а значит наступает рабочее время.
+  - text: Я встал со скамейки и спокойным шагом пошел вдоль больших пароходов, что ждут отплытия, в сторону дома. Я готов учиться!
   - var time: "{time} + 1"
   - scene: global_map
 
 morning_walk_2:
   - play calm2:
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADE CONTINUE
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADE CONTINUE
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADE CONTINUE
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADE CONTINUE
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADE CONTINUE
+  - text: Сегодня ранним утром решил начать день с активности, чтобы сразу получить заряд бодрости. Я рад, что рядом с ДГТУ есть большой парк, в котором можно потренироваться.
+  - text: Взяв бутылку воды и коврик, я направился в сторону манежа. Рядом с ним есть турники, а также место, где можно сделать растяжку.
   - show un_park1: WITH FADE CONTINUE
-  - text: Second walk!
+  - text: Солнце только поднималось, но по дороге я встретил много других студентов, что также решили заняться спортом. Настоящие энтузиасты!
+  - text: Кто-то бегал вокруг деревьев, вдыхая свежий утренний воздух, кто-то подтягивался на турниках. Я же решил начать с легкой разминки.
+  - show un_park2: WITH FADE CONTINUE
+  - text: И воздух, и земля остудились за ночь, но это не мешало наслаждаться постепенно теплеющей погодой. Я быстро выполнял упражнения, разогревая мышцы после сна.
+  - text: Вначале тело ощущалось деревянным, но с каждым движением жар распространялся от макушки до самых кончиков пальцев на ногах и руках. Через 5 минут я чувствовал себя бодрым как огурчик.
+  - text: В тени деревьев было великолепно - прохлада дарила умиротворение. Я люблю утро. Ты сам выбираешь, с чего начать этот день.
+  - text: Например, я сегодня решил заняться спортом. После растяжки перехожу к основной небольшой тренировке.
+  - effect SHAKE:
+  - text: Первым делом подтягивания пару подходов, затем приступил к приседаниям и отжиманиям.
+  - text: Когда я закончил - людей в парке заметно прибавилось. Многие спешили на занятия, так что я решил поспешить домой переодеться, чтобы пойти на учебу.
+  - text: Это время проведенное на улице позволило мне отдохнуть и наполнится энергией на весь день.
   - var time: "{time} + 1"
   - scene: global_map
 
 morning_walk_3:
   - play calm2:
-  - show running_track: WITH FADE CONTINUE
-  - text: Third walk!
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADE CONTINUE
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADE CONTINUE
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADE CONTINUE
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADE CONTINUE
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADE CONTINUE
+  - text: После сна я решил, что утро все-таки начинается с кофе. Захотелось позавтракать не дома, поэтому, недолго думая, засобирался в сторону ЦГБ.
+  - text: Там находились вкусныекофейни, а также кафе. Когда я вышел, солнце уже светило во всю, но на улицах людей было мало.
+  - show alley: WITH FADE CONTINUE
+  - text: Я шел по дороге через сквер ДГТУ и наслаждался пением птиц, свежим утренним воздухом.
   - var time: "{time} + 1"
   - scene: global_map
 
