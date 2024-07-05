@@ -4,6 +4,9 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
     TheGame.canvas.style.display = "none";
     const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[0];
     gameBody.style.display = "block";
+    let game_board = document.createElement('div');
+    game_board.id = 'board';
+    gameBody.appendChild(game_board);
     const board = gameBody.getElementsByTagName("div")[0];
     //const resetButton = document.getElementById("reset-button");
     const size = 4;
@@ -61,6 +64,7 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
 
         // Display win message
         if (hasWon) {
+            board.remove();
             gameBody.style.display = "none";
             TheGame.managers.logic.vars["is_game_won"] = true;
             TheGame.canvas.style.display = "block";
@@ -96,7 +100,7 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
         }
 
         // Display game over message
-
+        board.remove();
         gameBody.style.display = "none";
         this.game.canvas.style.display = "block";
         this.game.resolveAction();

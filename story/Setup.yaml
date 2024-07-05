@@ -20,6 +20,47 @@ backgrounds:
   
 
 characters:
+  barista:
+    displayName: "Бариста"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/barista.png
+  excited_student:
+    displayName: "Студентка"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/excited_one.png
+  sportie:
+    displayName: "Спортсментка"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/sportie.png
+  female:
+    displayName: "Женщина"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/female.png
+  nurse:
+    displayName: "Медсестра"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/nurse.png
+  male1:
+    displayName: "Студент"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/male1.png
+  male2:
+    displayName: "Студент"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/male2.png
+  bigmale:
+    displayName: "Студент"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/kolya.png
+    
   average_male_student:
     displayName: "Oddy"
     speechColour: "#FFFFFF"
@@ -43,6 +84,20 @@ characters:
       angry: assets/characters/placeholder_teacher.png
 
 cgs:
+  STD_day1_left: games/SpotTheDifference/images/Day1_left.png
+  STD_day1_right: games/SpotTheDifference/images/Day1_right.png
+
+  STD_day2_left: games/SpotTheDifference/images/Day2_left.png
+  STD_day2_right: games/SpotTheDifference/images/Day2_right.png
+
+  STD_day3_left: games/SpotTheDifference/images/Day3_left.png
+  STD_day3_right: games/SpotTheDifference/images/Day3_right.png
+
+  STD_day4_left: games/SpotTheDifference/images/Day4_left.png
+  STD_day4_right: games/SpotTheDifference/images/Day4_right.png
+
+  STD_day5_left: games/SpotTheDifference/images/Day5_left.png
+  STD_day5_right: games/SpotTheDifference/images/Day5_right.png
   
 
 music:

@@ -1,16 +1,16 @@
 class SpotTheDifference_game extends RenJS.Plugin {
     onCall(){
-        console.log('SpotTheDifference activated');
         const TheGame = this.game
-        TheGame.canvas.style.display = "none";
-        const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[3];
-        gameBody.style.display = "block";
+        TheGame.add.sprite(0,0,("STD_day"+TheGame.managers.logic.vars["day"]+"_left"));
+
+        
     }
 }
 
+
 RenJSGame.addPlugin('SpotTheDifference_game',SpotTheDifference_game)
 
-window.onload = function() {
+/*window.onload = function() {
     let app = new PIXI.Application({
         view: document.getElementById('game-canvas'),
         width: window.innerWidth,
@@ -206,4 +206,4 @@ window.onload = function() {
     });
 
     loadLevel(levels[currentLevel]);
-};
+};*/
