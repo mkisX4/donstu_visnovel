@@ -40,7 +40,7 @@ config:
           fill: '#FFFFFF'
           align: left
           wordWrap: true
-          wordWrapWidth: '600'
+          wordWrapWidth: '580'
       ctc:
         x: 570
         'y': 91

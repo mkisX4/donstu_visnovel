@@ -17,6 +17,12 @@ positions:
   OUTRIGHT: #Outside of the screen, right side
     x: 933
     y: 600
+  HALFLING_LEFT:
+    x: 360
+    y: 760
+  HALFLING_RIGHT:
+    x: 720
+    y: 760
 
 transitions:
   defaults: # Default transition when showing/hiding

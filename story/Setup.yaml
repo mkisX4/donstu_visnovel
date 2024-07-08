@@ -10,6 +10,8 @@ backgrounds:
   un_park1: assets/backgrounds/alley.png
   un_park2: assets/backgrounds/park.png
   un_park_tree: assets/backgrounds/tree.png
+  coffee_shop: assets/backgrounds/coffee_shop.png
+  morning_street: assets/backgrounds/morning_street.png
   near_the_shore: assets/backgrounds/shorewalkingzone.png
 
   student_room_technical: assets/backgrounds/dorm_rooms/student_room_technical.png
@@ -59,29 +61,8 @@ characters:
     displayName: "Студент"
     speechColour: "#FFFFFF"
     looks:
-      normal: assets/characters/kolya.png
+      normal: assets/characters/bigmale.png
     
-  average_male_student:
-    displayName: "Oddy"
-    speechColour: "#FFFFFF"
-    looks:
-      normal: assets/characters/placeholder_male.png
-      happy: assets/characters/placeholder_male.png
-      angry: assets/characters/placeholder_male.png
-  average_female_student:
-    displayName: "Maddy"
-    speechColour: "#FFFFFF"
-    looks:
-      normal: assets/characters/placeholder_female.png
-      happy: assets/characters/placeholder_female.png
-      angry: assets/characters/placeholder_female.png
-  old_professor :
-    displayName: "Professor"
-    speechColour: "#FFFFFF"
-    looks:
-      normal: assets/characters/placeholder_teacher.png
-      happy: assets/characters/placeholder_teacher.png
-      angry: assets/characters/placeholder_teacher.png
 
 cgs:
   STD_day1_left: games/SpotTheDifference/images/Day1_left.png
@@ -108,6 +89,13 @@ music:
   tense1: assets/audio/tense1.mp3
   trippy: assets/audio/trippy.mp3
 sfx:
+  click1: assets/sfx/click_1.mp3
+  click2: assets/sfx/click_2.mp3
+  door: assets/sfx/doors.mp3
+  steps: assets/sfx/step.mp3
+  paper: assets/sfx/papier.mp3
+  victory: assets/sfx/win.mp3
+  loss: assets/sfx/sad.mp3
   
 
 extra:
@@ -118,7 +106,7 @@ extra:
     snowflakes_large: assets/ambient/snowflakes_large.png 64 64
   scripts:
     OneHundredTwentyEight_game: games/128/game.js
-    #AssembleWords_game: games/AssembleWords/game.js
+    AssembleWords_game: games/AssembleWords/game.js
     SpotTheDifference_game: games/SpotTheDifference/game.js
     ClickerSort_game: games/ClickerSport/game.js
-    #Chemist_game: game: games/Chemist/game.js
+    Chemist_game: games/Chemist/game.js
