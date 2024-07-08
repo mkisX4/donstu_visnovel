@@ -99,7 +99,7 @@ global_map:
       - choice:
         - "Сыграть в 128":
           - scene: OneHundredTwentyEight
-        - "Сыграть в СловоСбор [placeholder]":
+        - "Сыграть в СловоСбор":
           - scene: AssembleWords
         - "Сыграть в ПоискРазличий":
           - scene: SpotTheDifference
@@ -117,6 +117,16 @@ global_map:
               - scene: morning_walk_2
             - "Утро3":
               - scene: morning_walk_3
+            - "Утро4":
+              - scene: morning_walk_4
+            - "Утро5":
+              - scene: morning_walk_5
+        - "Вечерние!":
+          - choice:
+            - "Вечер1":
+              - scene: evening_meeting_1
+            - "Вечер2":
+              - scene: evening_meeting_2
   
 
 #================================Game Scenes
@@ -185,15 +195,26 @@ SportClicker:
 
 Chemist:
   - hide ALL: WITH FADE
-  - text: Добро пожаловать в игру Химик!
-  - text: К сожалеиню, пока что эта игра находится в разработке, поэтому сейчас тут заглушка.
-  - choice:
-    - "Я победитель!":
-      - var time: "{time} + 1"
-      - scene: global_map
-    - "Ну почти...":
-      - var time: "{time} + 1"
-      - scene: global_map
+  - call Chemist_game:
+  - if ({is_game_won}):
+    - play victory:
+    - show un_hall1: WITH FADE CONTINUE
+    - text: Отлично, с этим разобрались! Фух, теперь можно и прогуляться.
+    - var study: "{study + 5}"
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
+  - else:
+    - play loss:
+    - show un_hall1: WITH FADETOWHITE CONTINUE
+    - text: Уф... Что-то каша в голове. О чём вообще препод говорил?..
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
 
 #================================Events Scenes
 #================Morning Scenes
@@ -407,10 +428,29 @@ morning_walk_6:
   - text: В последний раз обернулся на улицу, по которой прошла стихия, чтобы насладиться моментом хаоса, что она создала.
 
 #================Evening Scenes
-evening_rest1:
-  - play mystic1:
-  - show tree: WITH FADE CONTINUE
-  - text: First rest!
+evening_meeting_1:
+  - play calm1:
+  - show un_room_s1: WITH FADE CONTINUE
+  - text: И не заметив, как время быстро пролетело за все пары, я уже собрался отправляться домой.
+  - text: '"Ого, вроде бы я только приехал, а уже время возвращаться домой", — подумалось мне с удивлением и некой досадой.'
+  - text: Закинув быстренько, но аккуратно все свои вещи в портфель, я выхожу из кабинета и спускаюсь на первый этаж.
+  - show un_hall1: WITH FADE CONTINUE
+  - wait: 900
+  - show un_stairs_f1: WITH FADE CONTINUE
+  - show excited_student: AT 0,760
+  - animate excited_student:
+    time: 300
+    position:
+      x: 0
+      y: 800
+    wait: 200
+  - animate excited_student:
+    time: 300
+    position:
+      x: 0
+      y: 760
+  - text: Витая в своих мыслях и размышляя о грядущем экзамене, я замечаю краем глаза какое-то странное движение слева от меня.
+  - text: Повернув голову, вижу знакомый силуэт, что очень весело и с большой амплитудой размахивает рукой вверху в знак приветствия.
   - var time: "{time} + 1"
   - scene: global_map
 

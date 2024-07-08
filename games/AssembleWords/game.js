@@ -5,30 +5,55 @@ class AssembleWords_game extends RenJS.Plugin {
     const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[1];
     gameBody.style.display = "block";
 
+    gameBody.parentElement.setAttribute('style', 'background-image: url(http://127.0.0.1:5500/games/AssembleWords/images/library.png); background-repeat: no-repeat; background-position: center');
+
+
     let main_container = document.createElement('div');
     main_container.classList.add('container');
     let main_card = document.createElement('div');
     main_card.classList.add('card');
+
     let card_item = document.createElement('div');
     card_item.classList.add('card__item');
     card_item.innerHTML = 'Загаданное слово для Вас';
     main_card.appendChild(card_item);
+
     let card_item_finder = document.createElement('div');
     card_item_finder.classList.add('card__item', 'find__word');
     main_card.appendChild(card_item_finder);
+
     let card_item_question = document.createElement('div');
     card_item_question.classList.add('card__item', 'question__block');
     main_card.appendChild(card_item_question);
+    
+    let card_item_form = document.createElement('div');
+    card_item_form.classList.add('card__item');
+    let us_form = document.createElement('form');
+    let inputs = document.createElement('input');
+    inputs.classList.add('edit__block');
+    inputs.placeholder = 'Введите букву';
+    inputs.autofocus = '';
+    us_form.appendChild(inputs);
+    let SubmitButton = document.createElement('button');
+    SubmitButton.type = 'submit';
+    SubmitButton.innerHTML = 'Проверить букву!';
+    us_form.appendChild(SubmitButton);
+    card_item_form.appendChild(us_form);
+    main_card.appendChild(card_item_form);
+
+    let card_item_final = document.createElement('div');
+    card_item_final.classList.add('card__item', 'final');
+    main_card.appendChild(card_item_final);
+
 
     main_container.appendChild(main_card);
     gameBody.appendChild(main_container);
 
 
-    const edit__block = document.querySelector('.edit__block');
-    const button = document.querySelector('.button');
-    const form = document.querySelector('.form');
-    const find__word = document.querySelector('.find__word');
-    const question__block = document.querySelector('.question__block');
+    const edit__block = gameBody.querySelector('.edit__block');
+    const form = edit__block.parentElement;
+    const find__word = gameBody.querySelector('.find__word');
+    const question__block = gameBody.querySelector('.question__block');
 
     const words = [
       { word: 'слон', question: 'Какое животное самое крупное на суше?' },
@@ -75,7 +100,6 @@ class AssembleWords_game extends RenJS.Plugin {
     const findWord = selected.word;
     const question = selected.question;
     let WORD = [...findWord];
-    console.log(findWord);
 
     if (find__word && question__block) {
       question__block.textContent = question;
@@ -107,15 +131,12 @@ class AssembleWords_game extends RenJS.Plugin {
       }
 
       if (WORD.every(l => l === '')) {
-        const winMessage = document.createElement('p');
-        winMessage.textContent = 'Вы выиграли!';
-        document.body.appendChild(winMessage); // сообщение о победе
-        edit__block.readOnly = true; // Используем readOnly вместо disabled
-        button.disabled = true;
-        const cardItem = document.querySelector('.card__item.final');
-        if (cardItem) {
-          cardItem.appendChild(winMessage);
-        }
+        gameBody.innerHTML='';
+        gameBody.parentElement.setAttribute('style', 'margin-top: 0px; margin-bottom: 0px; margin-left: 0px;margin-right: 0px;');
+        TheGame.managers.logic.vars["is_game_won"] = true;
+        gameBody.style.display = "none";
+        TheGame.canvas.style.display = "block";
+        TheGame.resolveAction();
       }
     }
 

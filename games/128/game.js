@@ -62,7 +62,7 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
         // Check for game over
         checkGameOver();
 
-        // Display win message
+        // GameVictory
         if (hasWon) {
             board.remove();
             gameBody.style.display = "none";
@@ -99,11 +99,11 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
             }
         }
 
-        // Display game over message
+        // GameOver
         board.remove();
         gameBody.style.display = "none";
-        this.game.canvas.style.display = "block";
-        this.game.resolveAction();
+        TheGame.canvas.style.display = "block";
+        TheGame.resolveAction();
     }
 
     gameBody.addEventListener("keydown", (e) => {

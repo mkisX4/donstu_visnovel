@@ -143,3 +143,45 @@ body {
 .find__word span:not(:first-child) {
     margin-left: 7px;
 }
+
+/*Chemist game styles*/
+
+.substances {
+    display: grid;
+    grid-template-columns: repeat(8, 180px);
+    grid-template-rows: repeat(3, 100px);
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  
+  /* элементы */
+  .substance {
+    opacity: 90%;
+    width: 180px;
+    height: 100px;
+    background-color: #09640c;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border: 2px solid transparent;
+    
+  }
+  
+  .substance:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  /* правый блок */
+  .result {
+    width: 300px;
+    height: 200px;
+    background-color: #05573e;
+    color: goldenrod;
+    text-align: center;
+    line-height: 200px;
+    font-size: 24px;
+  }

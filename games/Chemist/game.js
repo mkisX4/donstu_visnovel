@@ -1,7 +1,45 @@
 class Chemist_game extends RenJS.Plugin {
     onCall(){
-        const substances = document.querySelectorAll('.substance');
-        const resultElement = document.querySelector('.result');
+        const TheGame = this.game
+        TheGame.canvas.style.display = "none";
+        const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[4];
+        gameBody.style.display = "block";
+
+        gameBody.parentElement.setAttribute('style', 'background-image: url(http://127.0.0.1:5500/games/Chemist/images/xim.jpg); background-repeat: no-repeat; background-position: center');
+
+        let greeting = document.createElement('div');
+        greeting.classList.add('text');
+        let greeting_text = document.createElement('h3');
+        greeting_text.innerHTML = 'Добро пожаловать в увлекательный мир химии и экспериментов! В игре "Химики" вы станете настоящим химиком, который должен сочетать различные элементы, чтобы создавать новые удивительные соединения.<br>В этой игре вам предстоит исследовать различные элементы из периодической таблицы, смешивая их между собой, чтобы получать новые уникальные элементы и соединения. Каждое сочетание элементов приводит к удивительным химическим реакциям, открывая перед вами новые возможности и тайны химии.';
+        greeting.appendChild(greeting_text);
+        gameBody.appendChild(greeting);
+
+        let main_container = document.createElement('div');
+        main_container.classList.add('container');
+        let substances_container = document.createElement('div');
+        substances_container.classList.add('substances');
+        let substance_array = [["Натрий(Na)","Na"],["Хлор(Cl)","Cl"],["Водород(H2)","H2"],["Водород(H)", "H"],["Кислород(O2)","O2"],["Железо(Fe)","Fe"],["Кислород(O)","O"],["Сера(S)","S"],["Углерод(C)","C"],["Алюминий(Al)","Al"],["Фтор(F)","F"],["Медь(Cu)","Cu"],["Кальций(Ca)","Ca"],["Фтористый водород(HF)","HF"],["Калий(K)","K"],["Бром(Br)","Br"],["Магний(Mg)","Mg"],["Вода(H2O)","H2O"],["Азот(N)","N"],["Фосфор(P)","P"],["Свинец(Pb)","Pb"],["Карбонат Кальция(CaCO3)","CaCO3"],["Йод(I)","I"],["Литий(Li)","Li"]];
+        for (let elem = 0; elem < substance_array.length; elem++){
+            let temporary_div = document.createElement('div');
+            temporary_div.classList.add('substance');
+            temporary_div.innerHTML = substance_array[elem][0];
+            temporary_div.setAttribute('data-substance', substance_array[elem][1]);
+            substances_container.appendChild(temporary_div);
+        }
+        main_container.appendChild(substances_container);
+
+        let result_container = document.createElement('div');
+        result_container.classList.add('result-container');
+        let result_div = document.createElement('div');
+        result_div.classList.add('result');
+        result_container.appendChild(result_div);
+        main_container.appendChild(result_container);
+
+        gameBody.appendChild(main_container);
+
+
+        const substances = gameBody.querySelectorAll('.substance');
+        const resultElement = gameBody.querySelector('.result');
 
         let selectedSubstances = [];
 
