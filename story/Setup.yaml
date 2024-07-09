@@ -105,6 +105,7 @@ extra:
     snowflakes: assets/ambient/snowflakes.png 17 17
     snowflakes_large: assets/ambient/snowflakes_large.png 64 64
   scripts:
+    GameMap: map/map.js
     OneHundredTwentyEight_game: games/128/game.js
     AssembleWords_game: games/AssembleWords/game.js
     SpotTheDifference_game: games/SpotTheDifference/game.js

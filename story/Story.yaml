@@ -84,49 +84,30 @@ theFirstHomeRest:
   - var day: 1
   - var time: 1
   - scene: global_map
+
+rest_short:
+  - play calm1:
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADE CONTINUE
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADE CONTINUE
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADE CONTINUE
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADE CONTINUE
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADE CONTINUE
+  - text: Ещё один день подошёл к концу. Пора спать. Завтра новый день - новые свершения!
+  - scene: global_map
   
 global_map:
+  - play calm2:
+  - call GameMap:
   - if ({time} > 3):
       - var day: "{day} + 1"
       - var time: 1
       - if ({day} > 5):
         - scene: endGame
-  - play calm2:
-  - show un_stairs_f1: WITH FADE CONTINUE
-  - text: Пока это плейсхолдер карты. Чего бы выжелали?
-  - choice:
-    - "Игры!":
-      - choice:
-        - "Сыграть в 128":
-          - scene: OneHundredTwentyEight
-        - "Сыграть в СловоСбор":
-          - scene: AssembleWords
-        - "Сыграть в ПоискРазличий":
-          - scene: SpotTheDifference
-        - "Сыграть в КликерСпорт":
-          - scene: SportClicker
-        - "Сыграть в Химика [placeholder]":
-          - scene: Chemist
-    - "Прогулки!":
-      - choice:
-        - "Утренние!":
-          - choice:
-            - "Утро1":
-              - scene: morning_walk_1
-            - "Утро2":
-              - scene: morning_walk_2
-            - "Утро3":
-              - scene: morning_walk_3
-            - "Утро4":
-              - scene: morning_walk_4
-            - "Утро5":
-              - scene: morning_walk_5
-        - "Вечерние!":
-          - choice:
-            - "Вечер1":
-              - scene: evening_meeting_1
-            - "Вечер2":
-              - scene: evening_meeting_2
   
 
 #================================Game Scenes
@@ -178,20 +159,31 @@ AssembleWords:
 
 SpotTheDifference:
   - hide ALL: WITH FADE
-  - call SpotTheDifference_game: 
-    day: day
-  - text: Hello there!
+  - call SpotTheDifference_game:
 
 SportClicker:
   - hide ALL: WITH FADE
+  - call ClickerSport_game:
   - text: Добро пожаловать в игру КликерСпорт!
-  - choice:
-    - "Я победитель!":
-      - var time: "{time} + 1"
-      - scene: global_map
-    - "Ну почти...":
-      - var time: "{time} + 1"
-      - scene: global_map
+  - if ({is_game_won}):
+    - play victory:
+    - show un_hall1: WITH FADE CONTINUE
+    - text: Отлично, с этим разобрались! Фух, теперь можно и прогуляться.
+    - var study: "{study + 5}"
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
+  - else:
+    - play loss:
+    - show un_hall1: WITH FADETOWHITE CONTINUE
+    - text: Уф... Что-то каша в голове. О чём вообще препод говорил?..
+    - var time: "{time} + 1"
+    - wait: 800
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - wait: 1000
+    - scene: global_map
 
 Chemist:
   - hide ALL: WITH FADE
@@ -456,7 +448,18 @@ evening_meeting_1:
 
 
 #================================Dream Scenes
-
+dream_winner:
+  - play mystic1:
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADE CONTINUE
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADE CONTINUE
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADE CONTINUE
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADE CONTINUE
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADE CONTINUE
 
 #================================Ending Scenes
 endGame:
