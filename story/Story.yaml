@@ -103,7 +103,10 @@ rest_short:
   
 global_map:
   - play calm2:
+  - var is_game_won: false
   - call GameMap:
+  - if ({mc_type} == 'None'):
+    - scene: endGame
   
 
 #================================Game Scenes
@@ -811,21 +814,111 @@ evening_6:
   - var time: "{time} + 1"
   - scene: global_map
 
-#================================Dream Scenes
-dream_winner:
-  - play mystic1:
-  - if ({mc_type} == 'technical'):
-    - show student_room_technical: WITH FADE CONTINUE
-  - if ({mc_type} == 'humanitarian'):
-    - show student_room_humanitarian: WITH FADE CONTINUE
-  - if ({mc_type} == 'designer'):
-    - show student_room_designer: WITH FADE CONTINUE
-  - if ({mc_type} == 'sportsman'):
-    - show student_room_sportsman: WITH FADE CONTINUE
-  - if ({mc_type} == 'chemist'):
-    - show student_room_chemist: WITH FADE CONTINUE
 
 #================================Ending Scenes
+ending_dream:
+  - if ({study} >= 25):
+    - play mystic1:
+    - if ({mc_type} == 'technical'):
+      - show student_room_technical: WITH FADE CONTINUE
+    - if ({mc_type} == 'humanitarian'):
+      - show student_room_humanitarian: WITH FADE CONTINUE
+    - if ({mc_type} == 'designer'):
+      - show student_room_designer: WITH FADE CONTINUE
+    - if ({mc_type} == 'sportsman'):
+      - show student_room_sportsman: WITH FADE CONTINUE
+    - if ({mc_type} == 'chemist'):
+      - show student_room_chemist: WITH FADE CONTINUE
+    - text: Я сидел за своим рабочим столом, склонившись над компьютером. На столе - разбросанные учебники и конспекты, недописанные задания. Мысли о будущем, о скорых экзаменах и собственной судьбе роились в голове.
+    - text: “Как же всё успеть? А если я не справлюсь?”  - одна мысль проносилась за другой. Как же всё трудно...
+    - text: Сам того не заметив, я погрузился в сон, измученный стрессом и бессонными ночами.
+    - show dream_lawnhouse: WITH FADE CONTINUE
+    - text: Во сне я оказался на огромной зеленой лужайке, окруженной цветущими деревьями. Впереди виднелся небольшой домик с крыльцом, на котором сидел пожилой мужчина. Он казался приветливыми улыбался, так что я подошел ближе.
+    - aftermc says: Здравствуй, молодой человек. Проходи, присядь рядом.
+    - text: Я присел на ступеньки и осмотрелся по сторонам. Здесь всё казалось таким спокойным и умиротворяющим.
+    - mc says: А кто же вы?
+    - aftermc says: Я - это ты. Ты - это я. Только с разницей лет в шестьдесят. И я пришёл показать тебе, что нас ждёт.
+    - show dream_conference: WITH FADE CONTINUE 
+    - text: Неожиданно картина вокруг изменилась. Я увидел себя на конференции, представляющим свой научный проект. Этот я явно чувствовал уверенность и гордость за свою работу.
+    - show dream_laboratory: WITH FADE CONTINUE
+    - text: Затем сцена сменилась, и я увидел себя в лаборатории, окруженного коллегами, обсуждающими результаты исследований.
+    - aftermc says: Это твои достижения, если ты будешь продолжать упорно трудиться. Но главное не забывай о том, что приносит тебе радость. Никогда не забывай о своих увлечениях - они помогут тебе найти баланс и радость в жизни. 
+    - effect SHAKE:
+    - if ({mc_type} == 'technical'):
+      - show student_room_technical: WITH FADE CONTINUE
+    - if ({mc_type} == 'humanitarian'):
+      - show student_room_humanitarian: WITH FADE CONTINUE
+    - if ({mc_type} == 'designer'):
+      - show student_room_designer: WITH FADE CONTINUE
+    - if ({mc_type} == 'sportsman'):
+      - show student_room_sportsman: WITH FADE CONTINUE
+    - if ({mc_type} == 'chemist'):
+      - show student_room_chemist: WITH FADE CONTINUE
+    - text: Внезапно сон оборвался и я проснулся, потянулся и посмотрел на часы. Было ещё достаточно времени, чтобы закончить задания.
+    - text: “Надо же было такому присниться...” - промелькунулась мысль.
+    - play paper:
+    - text: Почувствовав прилив вдохновения я вернулся к работе. Я был готов к любым вызовам! 
+    - mc says: Я справлюсь со всем, что меня ждёт!
+    - scene: ending_exam
+  - else:
+    - play mystic2:
+    - if ({mc_type} == 'technical'):
+      - show student_room_technical: WITH FADE CONTINUE
+    - if ({mc_type} == 'humanitarian'):
+      - show student_room_humanitarian: WITH FADE CONTINUE
+    - if ({mc_type} == 'designer'):
+      - show student_room_designer: WITH FADE CONTINUE
+    - if ({mc_type} == 'sportsman'):
+      - show student_room_sportsman: WITH FADE CONTINUE
+    - if ({mc_type} == 'chemist'):
+      - show student_room_chemist: WITH FADE CONTINUE
+    - effect SHAKE:
+    - text: Я открываю глаза и с ужасом понимаю, что заснул за компьютером. На экране монитора все еще незаконченный наполовину проект, который утром нужно было закончить к утреннему экзамену.
+    - text: Осознание, который сейчас час, холодной и липкой рукой сдавило горло парня. Восемь утра. Восемь. Экзамен начинается в десять утра. Я уснул, пытаясь закончить проект.
+    - text: Впопыхах, закидывая вещи в рюкзак, натягивая носки и куртку, я собирается в университет.
+    - text: В голове проносились мысли вроде":" “Мне конец. Нет, мне точно конец. Ну почему сегодня? Почему к самому любимому преподавателю на экзамен я так проспал? Как он будет ко мне относиться после этого? Позор какой.”
+    - text: Даже в глупых шутках таких ситуаций не бывает, но со мной происходит.
+    - effect SHAKE:
+    - hide ALL: WITH FADE CONTINUE
+    - text: Выбежав из квартиры, я поспешил на автобусную остановку. Автобус пришел вовремя, но был забит людьми так, что даже дышать не получалось полноценно, не то, что попытаться закончить проект на ноутбуке.
+    - text: “Ладно. Пойду отвечать последним, буду надеяться на лучшее.” - промелькнула идея.
+    - text: Автобус приехал к остановке университета, двери открылись. Студент практически выпал из дверей автобуса и побежал в свой корпус.
+    - effect SHAKE:
+    - show university_main: WITH FADE CONTINUE
+    - wait: 800
+    - effect SHAKE:
+    - show un_stairs_f1: WITH FADE CONTINUE
+    - text: Лифт не работает. Нужно подняться пешком на восьмой этаж, а экзамен уже идет десять минут.
+    - mc says: Да что это такое? Я же плохого никому никогда не делал и не желал. Что за испытания? я заслужил их разве?
+    - text: Подобные фразы непроизвольно вырывались у меня, пока я бежал вверх по лестнице, переступая сразу через две или три ступеньки.
+    - effect SHAKE:
+    - wait: 500
+    - effect SHAKE:
+    - wait: 500
+    - effect SHAKE:
+    - show un_hall1: WITH FADE CONTINUE
+    - text: Вот она, дверь аудитории, студент берётся за ручку двери, шумно выдыхает и распахивает ее.
+    - if ({mc_type} == 'technical'):
+      - show student_room_technical: WITH FADE CONTINUE
+    - if ({mc_type} == 'humanitarian'):
+      - show student_room_humanitarian: WITH FADETOWHITE CONTINUE
+    - if ({mc_type} == 'designer'):
+      - show student_room_designer: WITH FADETOWHITE CONTINUE
+    - if ({mc_type} == 'sportsman'):
+      - show student_room_sportsman: WITH FADETOWHITE CONTINUE
+    - if ({mc_type} == 'chemist'):
+      - show student_room_chemist: WITH FADETOWHITE CONTINUE
+    - text: В глаза ударил яркий свет. Студент открыл глаза, все еще прибывая в той тревоге ночного кошмара.
+    - mc says: Всего лишь сон... Как же хорошо...
+    - text: На часах было ещё утро, а если верить календарю - экзамен ещё завтра. Я ещё могу всё успеть...
+    - scene: ending_exam
+
+
+ending_exam:
+  - play mystic2:
+  - text: "ЭКЗАМЕН!"
+  - scene: endGame
+
 endGame:
   - hide ALL: WITH FADE CONTINUE
   - effect ROLLINGCREDITS:

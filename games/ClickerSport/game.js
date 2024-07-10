@@ -214,9 +214,16 @@ class ClickerSport_game extends RenJS.Plugin {
             }
         });
         function updateTitle() {
-            const titleIndex = Math.floor(strengthLevel / 10);
+            const titleIndex = strengthLevel - 1;
             const title = titles[Math.min(titleIndex, titles.length - 1)];
             titleDisplay.textContent = title;
+            if (strengthLevel >=3 && enduranceLevel >=3){
+                gameBody.innerHTML = "";
+                gameBody.style.display = "none";
+                TheGame.managers.logic.vars["is_game_won"] = true;
+                TheGame.canvas.style.display = "block";
+                TheGame.resolveAction();
+            }
         }
 
         function updateDisplay() {

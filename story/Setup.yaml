@@ -24,10 +24,18 @@ backgrounds:
   student_room_sportsman: assets/backgrounds/dorm_rooms/student_room_sportsman.png
   student_room_chemist: assets/backgrounds/dorm_rooms/student_room_chemist.png
   
+  dream_lawnhouse: assets/backgrounds/dreams/dream_lawnhouse.png
+  dream_conference: assets/backgrounds/dreams/dream_conference.png
+  dream_laboratory: assets/backgrounds/dreams/dream_laboratory.png
 
 characters:
   mc:
     displayName: "Ты"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/male1.png
+  aftermc:
+    displayName: "Будущий Ты"
     speechColour: "#FFFFFF"
     looks:
       normal: assets/characters/male1.png

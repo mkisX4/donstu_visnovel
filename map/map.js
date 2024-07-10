@@ -7,7 +7,7 @@ class GameMap extends RenJS.Plugin {
 
 
     if (TheGame.managers.logic.vars['day'] == 5){
-      TheGame.managers.story.startScene('exam_'+TheGame.managers.logic.vars['mc_type']);
+      TheGame.managers.story.startScene('ending_dream');
       TheGame.resolveAction();
       mapBody.innerHTML='';
       mapBody.style.display = "none";
@@ -167,15 +167,6 @@ class GameMap extends RenJS.Plugin {
       default:
         TheGame.managers.logic.vars['time'] = 1;
         TheGame.managers.logic.vars['day']++;
-        if(TheGame.managers.logic.vars['day'] > 5)
-        {
-          mapBody.innerHTML='';
-          mapBody.style.display = "none";
-          TheGame.canvas.style.display = "block";
-          TheGame.managers.story.startScene('endGame');
-          TheGame.resolveAction();
-          break;
-        }
         mapBody.innerHTML='';
         mapBody.style.display = "none";
         TheGame.canvas.style.display = "block";

@@ -35,6 +35,16 @@ class Chemist_game extends RenJS.Plugin {
         result_container.appendChild(result_div);
         main_container.appendChild(result_container);
 
+        //Temporary buttons
+        let win_button = document.createElement('Button');
+        win_button.id = 'win_button';
+        win_button.innerHTML = 'Победа!';
+        main_container.appendChild(win_button);
+        let lose_button = document.createElement('Button');
+        lose_button.id = 'lose_button';
+        lose_button.innerHTML = 'Поражение...';
+        main_container.appendChild(lose_button);
+
         gameBody.appendChild(main_container);
 
 
@@ -58,6 +68,23 @@ class Chemist_game extends RenJS.Plugin {
                 }
             });
         });
+
+        //Temporary buttons functions
+        document.getElementById('win_button').addEventListener('click', () => {
+            gameBody.innerHTML = "";
+                gameBody.style.display = "none";
+                TheGame.managers.logic.vars["is_game_won"] = true;
+                TheGame.canvas.style.display = "block";
+                TheGame.resolveAction();
+        });
+
+        document.getElementById('lose_button').addEventListener('click', () => {
+            gameBody.innerHTML = "";
+                gameBody.style.display = "none";
+                TheGame.canvas.style.display = "block";
+                TheGame.resolveAction();
+        });
+
 
         function calculateResult(substances) {
             if (substances.includes('Na') && substances.includes('Cl')) {

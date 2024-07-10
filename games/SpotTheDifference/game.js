@@ -1,9 +1,33 @@
 class SpotTheDifference_game extends RenJS.Plugin {
     onCall(){
         const TheGame = this.game
-        TheGame.add.sprite(0,0,("STD_day"+TheGame.managers.logic.vars["day"]+"_left"));
+        TheGame.canvas.style.display = "none";
+        const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[2];
+        gameBody.style.display = "block";
 
-        
+        let win_button = document.createElement('Button');
+        win_button.id = 'win_button';
+        win_button.innerHTML = 'Победа!';
+        gameBody.appendChild(win_button);
+        let lose_button = document.createElement('Button');
+        lose_button.id = 'lose_button';
+        lose_button.innerHTML = 'Поражение...';
+        gameBody.appendChild(lose_button);
+
+        document.getElementById('win_button').addEventListener('click', () => {
+            gameBody.innerHTML = "";
+                gameBody.style.display = "none";
+                TheGame.managers.logic.vars["is_game_won"] = true;
+                TheGame.canvas.style.display = "block";
+                TheGame.resolveAction();
+        });
+
+        document.getElementById('lose_button').addEventListener('click', () => {
+            gameBody.innerHTML = "";
+                gameBody.style.display = "none";
+                TheGame.canvas.style.display = "block";
+                TheGame.resolveAction();
+        });
     }
 }
 
