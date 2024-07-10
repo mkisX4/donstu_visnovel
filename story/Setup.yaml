@@ -12,6 +12,10 @@ backgrounds:
   un_park_tree: assets/backgrounds/tree.png
   coffee_shop: assets/backgrounds/coffee_shop.png
   morning_street: assets/backgrounds/morning_street.png
+  street_rain_heavy: assets/backgrounds/street_rain_heavy.png
+  dim_street: assets/backgrounds/dim_street.png
+  evening_flowers: assets/backgrounds/evening_flowers.png
+  evening_rainy_street: assets/backgrounds/evening_rainy_street.png
   near_the_shore: assets/backgrounds/shorewalkingzone.png
 
   student_room_technical: assets/backgrounds/dorm_rooms/student_room_technical.png
@@ -90,6 +94,7 @@ cgs:
 music:
   calm1: assets/audio/calm1.mp3
   calm2: assets/audio/calm2.mp3
+  calm3: assets/audio/calm3.mp3
   mystic1: assets/audio/mystic1.mp3
   mystic2: assets/audio/mystic2.mp3
   tense1: assets/audio/tense1.mp3
