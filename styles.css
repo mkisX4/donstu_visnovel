@@ -10,34 +10,42 @@ body {
 
 /* Map styles*/
 
+.mapdiv{
+    background-image: url('/map/images/map.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 760px;
+    width: 1024px;
+}
+
 .walk_button{
     width: 32px;
     height: 32px;
     border: 0;
-    position: absolute;
-    top: 440px;
-    left: 500px;
-    background: url(http://127.0.0.1:5500/map/icons/walking.png) center no-repeat;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: url('/map/icons/walking.png') center no-repeat;
 }
 
 .study_button{
     width: 32px;
     height: 32px;
     border: 0;
-    position: absolute;
-    top: 380px;
-    left: 520px;
-    background: url(http://127.0.0.1:5500/map/icons/studying.png) center no-repeat;
+    position: relative;
+    top: 470px;
+    left: 440px;
+    background: url('/map/icons/studying.png') center no-repeat;
 }
 
 .frienly_button{
     width: 32px;
     height: 32px;
     border: 0;
-    position: absolute;
-    top: 440px;
-    left: 500px;
-    background: url(http://127.0.0.1:5500/map/icons/laugh.png) center no-repeat;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: url('/map/icons/laugh.png') center no-repeat;
 }
 
 /*128 game styles*/
@@ -233,7 +241,7 @@ li {
     position: relative;
     width: 200px;
     height: 300px;
-    background: url('images/weightlifter.png') no-repeat center center;
+    background: url('/games/ClickerSport/images/none.png') no-repeat center center;
     background-size: contain;
 }
 
@@ -241,7 +249,7 @@ li {
     position: absolute;
     width: 60px;
     height: 60px;
-    background: url('images/weight.png') no-repeat center center;
+    background: url('/games/ClickerSport/images/weight.png') no-repeat center center;
     background-size: contain;
     transition: top 0.3s;
 }

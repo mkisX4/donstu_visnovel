@@ -22,6 +22,11 @@ backgrounds:
   
 
 characters:
+  mc:
+    displayName: "Ты"
+    speechColour: "#FFFFFF"
+    looks:
+      normal: assets/characters/male1.png
   barista:
     displayName: "Бариста"
     speechColour: "#FFFFFF"
@@ -63,8 +68,9 @@ characters:
     looks:
       normal: assets/characters/bigmale.png
     
-
 cgs:
+  excited_student_anim: assets/characters/excited_one.png
+
   STD_day1_left: games/SpotTheDifference/images/Day1_left.png
   STD_day1_right: games/SpotTheDifference/images/Day1_right.png
 
