@@ -33,7 +33,7 @@ start:
       - var mc_type: chemist
       - text: ...кажется очень сложной, но тем не менее - она крайне интересна. Хотя иногда, конечно, хотелось бы ещё пару часов сна в неё вместить...
       - text: Что-то мысли о сне приходят уж сильно часто. Не к добру это. Пойду-ка лучше посплю.
-  - scene: theFirstHomeRest
+  - scene: ending_exam
 
 #================================Initial Scenes
 theFirstHomeRest:
@@ -117,7 +117,7 @@ OneHundredTwentyEight:
     - play victory:
     - show un_hall1: WITH FADE CONTINUE
     - text: Отлично, с этим разобрались! Фух, теперь можно и прогуляться.
-    - var study: "{study + 5}"
+    - var study: "{study} + 5"
     - var time: "{time} + 1"
     - wait: 800
     - show un_stairs_f1: WITH FADE CONTINUE
@@ -899,7 +899,7 @@ ending_dream:
     - show un_hall1: WITH FADE CONTINUE
     - text: Вот она, дверь аудитории, студент берётся за ручку двери, шумно выдыхает и распахивает ее.
     - if ({mc_type} == 'technical'):
-      - show student_room_technical: WITH FADE CONTINUE
+      - show student_room_technical: WITH FADETOWHITE CONTINUE
     - if ({mc_type} == 'humanitarian'):
       - show student_room_humanitarian: WITH FADETOWHITE CONTINUE
     - if ({mc_type} == 'designer'):
@@ -915,9 +915,700 @@ ending_dream:
 
 
 ending_exam:
-  - play mystic2:
-  - text: "ЭКЗАМЕН!"
+  - var exam_result: 0
+  - play trippy:
+  - if ({mc_type} == 'technical'):
+    - show student_room_technical: WITH FADETOWHITE CONTINUE
+    - if ({study} >= 25):
+      - var exam_result: "{exam_result} + 4"
+      - text: Ну вот и настал день экзамена... Что же, я готов и полон решимости. За дело!
+      - show un_park1: WITH FADE CONTINUE
+      - text: В голове ясно, разум чист. Никакого страха и нервозности я не чувствовал. Бодрым шагом и с улыбкой на лице я шагал на первый экзамен по знакомым улицам.
+      - show university_main: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_stairs_f1: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_hall1: WITH FADE CONTINUE
+      - text: Ну вот и аудитория. Сейчас всё решится!
+      - play door:
+      - show un_room_s2: WITH FADE CONTINUE
+    - else:
+      - if ({study} >= 15):
+        - var exam_result: "{exam_result} + 2"
+        - text: Фух. Сегодня тот самый день. Поднялся я немного позже - вчера допоздна сидел за конспектами.
+        - show un_park1: WITH FADE CONTINUE
+        - text: Когда я покинул комнату, на пару мгновений меня пронзил страх, но он быстро прошёл. Пару раз сжав кулаки, я прибавил шагу, дабы прийти пораньше и ещё раз пробежаться по конспекту.
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Так, я на месте. У меня ещё есть пятнадцать минут, чтобы пробежаться по конспектам...
+        - play paper:
+        - wait: 500
+        - play paper:
+        - wait: 500
+        - play paper:
+        - wait: 500
+        - play door:
+        - show un_room_s2: WITH FADE CONTINUE
+      - else:
+        - text: Блин, сегодня ведь экзамен! На него совсем нельзя опаздывать! Нужно собраться и поскорее выходить!
+        - show un_park1: WITH FADE CONTINUE
+        - text: Выйдя за порог я чувствовал, как с каждым шагом из меня выветривается уверенность. Липкий страх вцепился в меня и шептал пугающие мысли.
+        - text: Взглянув на часы, я с ужасом понял, что слишком сильно замедлил шаг и могу опоздать, так что пришлось пошевеливаться.
+        - show university_main: WITH FADE CONTINUE
+        - wait: 900
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 900
+        - show un_hall1: WITH FADE CONTINUE
+        - text: По спине прокатилось несколько капель холодного пота. В голове пронесились мысли вроде “Может, сказать, что я заболел? Может быть у кого-то есть шпаргалка?”
+        - text: С такими мыслями я открыл дверь и вошёл в аудиторию.
+        - play door:
+        - show un_room_s2: WITH FADE CONTINUE
+    - text: Вот и начинается экзамен. Вот некоторые из самых сложных вопросов, что мне попались":"
+    - text: Математическое понятие характеризующее скорость изменения функции в определённой точке - это?..
+    - choice:
+      - "Дифференциал":
+        - var exam_result: "{exam_result} + 0"
+      - "Фрактал":
+        - var exam_result: "{exam_result} + 0"
+      - "Потенциал":
+        - var exam_result: "{exam_result} + 0"
+      - "Производная":
+        - var exam_result: "{exam_result} + 1"
+      - "График":
+        - var exam_result: "{exam_result} + 0"
+    - text: Этот есть!
+    - if ({study} <= 20):
+      - text: Скалярная физическая величина, являющаяся мерой движения материальных точек, образующих рассматриваемую механическую систему, и зависящая только от масс и модулей скоростей этих точек - это?..
+      - choice:
+        - "Скрость":
+          - var exam_result: "{exam_result} + 0"
+        - "Кинетическая энергия":
+          - var exam_result: "{exam_result} + 1"
+        - "Опера́тор Лапла́са":
+          - var exam_result: "{exam_result} + 0"
+        - "Магия!":
+          - var exam_result: "{exam_result} + 0"
+        - "Дисперсия":
+          - var exam_result: "{exam_result} + 0"
+      - text: С этим тоже разобрались!
+    - if ({study} <= 15):
+      - text: Информация, упорядоченная в виде набора элементов (записей) одинаковой структуры, для обработки котоырх используются специальные программы, позволяющие упорядочивать записи, делать выборки по указанному правилу - это?..
+      - choice:
+        - "База данных":
+          - var exam_result: "{exam_result} + 1"
+        - "База знаний":
+          - var exam_result: "{exam_result} + 0"
+        - "Оперативное запоминающее устройство":
+          - var exam_result: "{exam_result} + 0"
+        - "Индекс":
+          - var exam_result: "{exam_result} + 0"
+        - "Клавиатура":
+          - var exam_result: "{exam_result} + 0"
+      - text: Ещё один готов!
+    - if ({study} <= 10):
+      - text: Пассивный элемент электроцепей с постоянным или переменным сопротивлением - это?..
+      - choice:
+        - "Транзистор":
+          - var exam_result: "{exam_result} + 0"
+        - "Конденсатор":
+          - var exam_result: "{exam_result} + 0"
+        - "Резистор":
+          - var exam_result: "{exam_result} + 1"
+        - "Блок питания":
+          - var exam_result: "{exam_result} + 0"
+        - "Линия связи":
+          - var exam_result: "{exam_result} + 0"
+      - text: Сколько их там ещё осталось?
+    - if ({study} <= 5):
+      - text: Направленный отрезок, что описывается не только величиной, но и направлением - это?..
+      - choice: 
+        - "Дельтоид":
+          - var exam_result: "{exam_result} + 0"
+        - "Бисектриса":
+          - var exam_result: "{exam_result} + 0"
+        - "Отрезок":
+          - var exam_result: "{exam_result} + 0"
+        - "Прямая":
+          - var exam_result: "{exam_result} + 0"
+        - "Вектор":
+          - var exam_result: "{exam_result} + 1"
+      text: Всё, теперь точно всё!
+  - if ({mc_type} == 'humanitarian'):
+    - show student_room_humanitarian: WITH FADETOWHITE CONTINUE
+    - if ({study} >= 25):
+      - var exam_result: "{exam_result} + 4"
+      - text: Итак, сегодня экзамен! У меня хорошее предчувстие - думаю, что всё пройдёт замечательно.
+      - show un_park1: WITH FADE CONTINUE
+      - text: Интересно, что там будет? Забавно, если в итоге мне попадутся самые лёгкие вопросы и в итоге буду чувствовать, что я зря столько готовился.
+      - show university_main: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_stairs_f1: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_hall1: WITH FADE CONTINUE
+      - text: Ага, вот я и на месте. Погнали!
+      - play door:
+      - show un_room_s1: WITH FADE CONTINUE
+    - else:
+      - if ({study} >= 15):
+        - var exam_result: "{exam_result} + 2"
+        - text: Так, вот и судьбоносный день. Остаётся надеяться, что я к нему достаточно подготовился. Идём!
+        - show un_park1: WITH FADE CONTINUE
+        - text: Лёгкий утренний ветерок развевал мои волосы и немного успокоил мои нервы. Я сделал всё, что в моих силах, теперь осталось лишь пройти через оставшееся испытание.
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Вот она, достойная схватка на моём веку. Сделаем это!
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+      - else:
+        - play paper:
+        - wait: 600
+        - play paper:
+        - wait: 600
+        - play paper:
+        - wait: 600
+        - text: Литота... Гипербола... Оксимирон... Давай, голова, запоминай! Это всё мне вот-вот пригодится. О нет, мне уже пора выходить.
+        - show un_park1: WITH FADE CONTINUE
+        - play paper:
+        - wait: 600
+        - play paper:
+        - wait: 600
+        - play paper:
+        - wait: 600
+        - text: Идя по улице в сторону главного корпуса, я прошолжал листать свой конспект, надеясь запомнить как можно больше к началу экзамена.
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Я уже на месте. Чёрт. Времени совсем не осталось.
+        - text: Убрав конспект в сумку, вздохнув и выдохнув, чтобы успокоиться, я потянул дверь за ручку...
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+    - text: Экзамен начался! Мне попадались разные вопросы, например такие":"
+    - text: Стилистическая фигура преуменьшения или нарочитого смягчения свойств, признаков, значений каких-либо предметов или явлений - это?..
+    - choice:
+      - "Троп":
+        - var exam_result: "{exam_result} + 0"
+      - "Образность":
+        - var exam_result: "{exam_result} + 0"
+      - "Дактиль":
+        - var exam_result: "{exam_result} + 0"
+      - "Амфибрахий":
+        - var exam_result: "{exam_result} + 0"
+      - "Литота":
+        - var exam_result: "{exam_result} + 1"
+    - text: Хорошо!
+    - if ({study} <= 20):
+      - text: Что из этого написал Л.Н. Толстой?..
+      - choice:
+        - "«Мёртвые души»":
+          - var exam_result: "{exam_result} + 0"
+        - "«Бесконечное лето»":
+          - var exam_result: "{exam_result} + 0"
+        - "«Египетские ночи»":
+          - var exam_result: "{exam_result} + 0"
+        - "«Ягоды»":
+          - var exam_result: "{exam_result} + 1"
+        - "«Овощи»":
+          - var exam_result: "{exam_result} + 0"
+      - text: Замечательно!
+    - if ({study} <= 15):
+      - text: Чиь это слова':' «Злословец есть самый лютый из диких зверей, а льстец — самый опасный из ручных животных»?..
+      - choice:
+        - "Сунь-цзы":
+          - var exam_result: "{exam_result} + 0"
+        - "Марко Поло":
+          - var exam_result: "{exam_result} + 0"
+        - "Диогена":
+          - var exam_result: "{exam_result} + 1"
+        - "Владимира Ильича Ленина":
+          - var exam_result: "{exam_result} + 0"
+        - "Джорджа Вашингтона":
+          - var exam_result: "{exam_result} + 0"
+      - text: Это уже половина? Или ещё нет?
+    - if ({study} <= 10):
+      - text: Когда было отменено крепостное право?..
+      - choice:
+        - "7-е ноября 1917-го года":
+          - var exam_result: "{exam_result} + 0"
+        - "3-е марта 1861-го года":
+          - var exam_result: "{exam_result} + 1"
+        - "15-е октября 1793-го года":
+          - var exam_result: "{exam_result} + 0"
+        - "28-е июля 1914-го года":
+          - var exam_result: "{exam_result} + 0"
+        - "11-е декарбря 1873-го года":
+          - var exam_result: "{exam_result} + 0"
+      - text: Отлично!
+    - if ({study} <= 5):
+      - text:  «Медлителен, трудно переключаемый с одной деятельности на другую, устойчив и постоянен в стремлениях и настроении, скуп на проявление эмоций.» - характериситка какого псхиотипа?..
+      - choice: 
+        - "Меланхолик":
+          - var exam_result: "{exam_result} + 1"
+        - "Истерик":
+          - var exam_result: "{exam_result} + 0"
+        - "Шизофреник":
+          - var exam_result: "{exam_result} + 0"
+        - "Трудоголик":
+          - var exam_result: "{exam_result} + 0"
+        - "Сангвиник":
+          - var exam_result: "{exam_result} + 0"
+      text: Этот последний. Всё!
+  - if ({mc_type} == 'designer'):
+    - show student_room_designer: WITH FADETOWHITE CONTINUE
+    - if ({study} >= 25):
+      - var exam_result: "{exam_result} + 4"
+      - text: Так-так, экзамен. Сегодня. Готов ли я к нему? Конечно же готов! Ладно, пора выходить...
+      - show un_park1: WITH FADE CONTINUE
+      - text: Кстати, у нас же в последний момент экзамен перенсли в другую аудиторию. Я там ещё не был. Надо будет не ошибиться...
+      - show university_main: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_stairs_f1: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_hall1: WITH FADE CONTINUE
+      - text: Вроде бы та аудитория. Ану-ка...
+      - play door:
+      - show un_room_s3: WITH FADE CONTINUE
+    - else:
+      - if ({study} >= 15):
+        - var exam_result: "{exam_result} + 2"
+        - text: Что-то сегодня я рано встал. Совсем не спится. Ладно, раз уж есть возможность - немного повторю. Где-там  мой ноутбук...
+        - play click1:
+        - wait: 600
+        - play click2:
+        - wait: 600
+        - play click2:
+        - wait: 600
+        - text: Та-а-а-ак, поехали...
+        - hide ALL: WITH FADE CONTINUE
+        - show student_room_designer: WITH FADETOWHITE CONTINUE
+        - effect SHAKE:
+        - text: Ой, совсем забыл о времени. Нужно быстрее собираться!
+        - show un_park1: WITH FADE CONTINUE
+        - effect SHAKE:
+        - wait: 800
+        - show university_main: WITH FADE CONTINUE
+        - effect SHAKE:
+        - wait: 800
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - effect SHAKE:
+        - wait: 800
+        - show un_hall1: WITH FADE CONTINUE
+        - effect SHAKE:
+        - text: Уф... Фух... Едва успел. Так, вдох-выдох, нужно унять дыхание...
+        - text: Ладно, вроде успокоился. Пошли на экзамен.
+        - play door:
+        - show un_room_s3: WITH FADE CONTINUE
+      - else:
+        - text: Ох, как не хочется сегодня подниматься с кровати...
+        - hide ALL: WITH FADE CONTINUE
+        - wait: 1500
+        - text: Но нужно. Неявку получить - очень не хочется. Может, смогу как-то справиться.
+        - effect SHAKE:
+        - show student_room_designer: WITH FADETOWHITE CONTINUE
+        - text: Ладно, погнали. Один раз живём!
+        - show un_park1: WITH FADE CONTINUE
+        - text: Прохладный ветер пробрал меня до самых костей и заставил вздрогнуть. 
+        - effect SHAKE:
+        - text: Что-то какое-то у меня нехорошее предчвствие.
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Ага, вот здесь.
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+        - text: Так, стоп. Никого из наших не видно.
+        - mc says: А что здесь за экзамен?
+        - show male1: WITH FADE CONTINUE AT HALFLING_LEFT
+        - male1 says: История.
+        - mc says: А где же тогда?.. Вот блин!
+        - hide male1: WITH FADE CONTINUE
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Выскочив из аудитории я бегом бросился по коридору дальше, боясь опоздать.
+        - effect SHAKE:
+        - text: Писали же вчера, что у нас в другой аудитории!
+        - effect SHAKE:
+        - text: Вот она!
+        - play door:
+        - show un_room_s3: WITH FADE CONTINUE
+        - text: Фух, еле успел...
+    - text: Началось... Давайте глянем, что мне попадётся.
+    - text: Дизайн, разработанный для определённого товара в стиле, отличающимся и выделяющий его на рынке сбыта, посредствам упаковки, графических знаков, логотипов и мультимедиа технологий - это?..
+    - choice:
+      - "Бренд":
+        - var exam_result: "{exam_result} + 1"
+      - "Кернинг":
+        - var exam_result: "{exam_result} + 0"
+      - "Композиция":
+        - var exam_result: "{exam_result} + 0"
+      - "Логотип":
+        - var exam_result: "{exam_result} + 0"
+      - "Монограмма":
+        - var exam_result: "{exam_result} + 0"
+    - text: С этим разобрались!
+    - if ({study} <= 20):
+      - text: Выдача чужого произведения за своё или незаконное опубликование чужого произведения под своим именем, присвоение авторства - это?..
+      - choice:
+        - "Супрематизм":
+          - var exam_result: "{exam_result} + 0"
+        - "Реплика":
+          - var exam_result: "{exam_result} + 0"
+        - "Цитирование":
+          - var exam_result: "{exam_result} + 0"
+        - "Заимтвование":
+          - var exam_result: "{exam_result} + 0"
+        - "Плагиат":
+          - var exam_result: "{exam_result} + 1"
+      - text: И этот готов!
+    - if ({study} <= 15):
+      - text: Какое наименование художественного стиля западноевропейского, главным образом французского, искусства второй четверти и середины XVIII века?..
+      - choice:
+        - "Ренессанс":
+          - var exam_result: "{exam_result} + 0"
+        - "Рококо":
+          - var exam_result: "{exam_result} + 1"
+        - "Футуризм":
+          - var exam_result: "{exam_result} + 0"
+        - "Франко-стайло":
+          - var exam_result: "{exam_result} + 0"
+        - "Барокко":
+          - var exam_result: "{exam_result} + 0"
+      - text: С этим покончено!
+    - if ({study} <= 10):
+      - text: Вид изобразительного искусства, в котором основными изобразительными средствами являются свойства изобразительной поверхности и тональные отношения линий, штрихов и пятен - это?..
+      - choice:
+        - "Черчение":
+          - var exam_result: "{exam_result} + 0"
+        - "Граффити":
+          - var exam_result: "{exam_result} + 0"
+        - "Графика":
+          - var exam_result: "{exam_result} + 1"
+        - "3D-дизайн":
+          - var exam_result: "{exam_result} + 0"
+        - "Видеомонтаж":
+          - var exam_result: "{exam_result} + 0"
+      - text: Ещё один!
+    - if ({study} <= 5):
+      - text:  Кто написал «De sterrennacht»?..
+      - choice: 
+        - "Лазарь Маркович Лисицкий":
+          - var exam_result: "{exam_result} + 0"
+        - "Пабло Пикассо":
+          - var exam_result: "{exam_result} + 0"
+        - "Рафаэль Санти":
+          - var exam_result: "{exam_result} + 0"
+        - "Винсент Ван Гог":
+          - var exam_result: "{exam_result} + 1"
+        - "Леонардо да Винчи":
+          - var exam_result: "{exam_result} + 0"
+      text: Этот же последний, да?
+  - if ({mc_type} == 'sportsman'):
+    - show student_room_sportsman: WITH FADETOWHITE CONTINUE
+    - if ({study} >= 25):
+      - var exam_result: "{exam_result} + 4"
+      - effect SHAKE:
+      - text: Опа! Вот я и на ногах. За окном светло и безоблачно. Кажется, сегодня будет хороший день!
+      - show un_park1: WITH FADE CONTINUE
+      - wait: 1000
+      - show university_main: WITH FADE CONTINUE
+      - wait: 1000
+      - show un_stairs_f1: WITH FADE CONTINUE
+      - wait: 1000
+      - show un_hall1: WITH FADE CONTINUE
+      - text: Вот здесь всё и произойдёт. Чудненько. Давай покончим с этим!
+      - play door:
+      - show un_room_s1: WITH FADE CONTINUE
+    - else:
+      - if ({study} >= 15):
+        - var exam_result: "{exam_result} + 2"
+        - hide All: WITH FADE CONTINUE
+        - wait: 700
+        - show student_room_sportsman: WITH FADE CONTINUE
+        - wait: 700
+        - hide All: WITH FADE CONTINUE
+        - wait: 700
+        - show student_room_sportsman: WITH FADE CONTINUE
+        - text: Ох... Кажется, я не выспался. Который час? Девять... Надо бы умыться и собраться на экзамен.
+        - effect SHAKE:
+        - wait: 700
+        - hide All: WITH FADE CONTINUE
+        - text: Вроде бы всё... Пошли!
+        - show un_park1: WITH FADE CONTINUE
+        - wait: 1000
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1000
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1000
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Ну что же, чему быть - тому не миновать. Пора на экзамен.
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+      - else:
+        - text: Как-то нехорошо мне... Это психологическое или я съел что-то не то?
+        - text: Как бы то ни было, но нужно собираться на экзамен - пропускать его никак нельзя.
+        - show un_park1: WITH FADE CONTINUE
+        - wait: 1000
+        - show university_main: WITH FADE CONTINUE
+        - effect SHAKE:
+        - text: Уф... Надеюсь, экзамен пройдёт быстро. Хочется вернуться в кровать и сжаться в комочек.
+        - wait: 1000
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1000
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Вот и добрались. Ну что же, пошли. Быстрее начнём - быстрее закончим.
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+    - text: Вот оно. И что же мне попадётся?
+    - text: Состояние полного физического, душевного и социального благополучия, а не только отсутствие болезней и физических дефектов - это?..
+    - choice:
+      - "Жизнь":
+        - var exam_result: "{exam_result} + 0"
+      - "Гигиена":
+        - var exam_result: "{exam_result} + 0"
+      - "Стресс":
+        - var exam_result: "{exam_result} + 0"
+      - "Здоровье":
+        - var exam_result: "{exam_result} + 1"
+      - "Счастье":
+        - var exam_result: "{exam_result} + 0"
+    - text: Один есть!
+    - if ({study} <= 20):
+      - text: Для чего нужен Аденозинтрифосфат?..
+      - choice:
+        - "Обеспечением энергией многочисленных биохимических реакций":
+          - var exam_result: "{exam_result +1}"
+        - "Для обеспечения нормального пищеварения в организме":
+          - var exam_result: "{exam_result} + 0"
+        - "Это противозаконно!":
+          - var exam_result: "{exam_result} + 0"
+        - "Для передачи сообщений от нервных окончаний к мозгу":
+          - var exam_result: "{exam_result} + 0"
+        - "Для обмена веществ между клетками в организме":
+          - var exam_result: "{exam_result} + 0"
+      - text: Ещё один готов!
+    - if ({study} <= 15):
+      - text: Какой элемент в среднем составляет 18% массы тела человека?..
+      - choice:
+        - "Кровь":
+          - var exam_result: "{exam_result} + 0"
+        - "Железо":
+          - var exam_result: "{exam_result} + 0"
+        - "Золото":
+          - var exam_result: "{exam_result} + 0"
+        - "Монооксид дигидрогена":
+          - var exam_result: "{exam_result} + 0"
+        - "Углерод":
+          - var exam_result: "{exam_result} + 1"
+      - text: Прошли ещё один!
+    - if ({study} <= 10):
+      - text: Сколько максимум человек может прожить без воды?..
+      - choice:
+        - "Сутки":
+          - var exam_result: "{exam_result} + 0"
+        - "2 дня":
+          - var exam_result: "{exam_result} + 0"
+        - "Сколько угодно":
+          - var exam_result: "{exam_result} + 0"
+        - "12 часов":
+          - var exam_result: "{exam_result} + 0"
+        - "7 дней":
+          - var exam_result: "{exam_result} + 1"
+      - text: Ещё один!
+    - if ({study} <= 5):
+      - text: Какие бывают фазы сна?..
+      - choice: 
+        - "Слабая и сильная":
+          - var exam_result: "{exam_result} + 0"
+        - "Быстрая и медленная":
+          - var exam_result: "{exam_result} + 1"
+        - "Первая, вторая и третья":
+          - var exam_result: "{exam_result} + 0"
+        - "Начальная, средняя и конечная":
+          - var exam_result: "{exam_result} + 0"
+        - "Серая и чёрная":
+          - var exam_result: "{exam_result} + 0"
+      text: Ну вот, кажется закончили...
+  - if ({mc_type} == 'chemist'):
+    - show student_room_chemist: WITH FADETOWHITE CONTINUE
+    - if ({study} >= 25):
+      - var exam_result: "{exam_result} + 4"
+      - effect SHAKE:
+      - text: Итак. Кофе выпит, знания в голове, погода отличная. Пора отправяться на экзамен.
+      - show un_park1: WITH FADE CONTINUE
+      - wait: 1200
+      - show university_main: WITH FADE CONTINUE
+      - wait: 1200
+      - show un_stairs_f1: WITH FADE CONTINUE
+      - text: Ох, ещё и лестница. Или всё же лифт подняться на лифте?..
+      - text: А, ладно. Не хочу до лифта тащиться. Пойду по лестнице.
+      - wait: 1200
+      - show un_hall1: WITH FADE CONTINUE
+      - wait: 1200
+      - play door:
+      - show un_room_s1: WITH FADE CONTINUE
+    - else:
+      - if ({study} >= 15):
+        - var exam_result: "{exam_result} + 2"
+        - play click2:
+        - wait: 600
+        - play click1:
+        - wait: 600
+        - play click1:
+        - wait: 600
+        - text: Так, ладно. Хватит сидеть за компьютером, пора уже и собираться. До экзамена полчаса осталось.
+        - show un_park1: WITH FADE CONTINUE
+        - text: Блин, а я компьютер выключил, когда уходил?..
+        - text: Ладно, всё равно нет времени проверять. Может быть сам в гибернацию уйдёт.
+        - wait: 1200
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 1200
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Здесь же, да? Ладно ,сейчас узнаем.
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+      - else:
+        - effect SHAKE:
+        - text: Десять минут! Всего десять минут осталось!
+        - effect SHAKE:
+        - text: Как же можно было так проспать!? Надо побыстрее собираться!
+        - effect SHAKE:
+        - hide ALL: WITH FADE CONTINUE
+        - text: Вроде бы всё взял,а теперь - бегом!
+        - show un_park1: WITH FADE CONTINUE
+        - wait: 900
+        - show university_main: WITH FADE CONTINUE
+        - text: Быстрее! Не хватало ещё опоздать!
+        - effect SHAKE:
+        - text: Давай! Почти добрался!
+        - wait: 900
+        - show un_stairs_f1: WITH FADE CONTINUE
+        - wait: 900
+        - show un_hall1: WITH FADE CONTINUE
+        - text: Уф... Уф... Фу-у-у-х...
+        - text: Уже десять! Давай, быстрее! Не хватало ещё преподавателя разозлить опозданием!
+        - play door:
+        - show un_room_s1: WITH FADE CONTINUE
+    - text: Итак, что у нас сегодня будет?
+    - text: Субатомная частица (обозначается символом e− или β− ), чей электрический заряд отрицателен и равен по модулю одному элементарному электрическому заряду - это?..
+    - choice:
+      - "Электрон":
+        - var exam_result: "{exam_result} + 1"
+      - "Позитрон":
+        - var exam_result: "{exam_result} + 0"
+      - "Протон":
+        - var exam_result: "{exam_result} + 0"
+      - "Нейтрино":
+        - var exam_result: "{exam_result} + 0"
+      - "Атом":
+        - var exam_result: "{exam_result} + 0"
+    - text: С этим всё!
+    - if ({study} <= 20):
+      - text: Вид амидной связи, возникающей при образовании белков и пептидов в результате взаимодействия α-аминогруппы (—NH2) одной аминокислоты с α-карбоксильной группой (—СООН) другой аминокислоты - это?..
+      - choice:
+        - "Пептидная связь":
+          - var exam_result: "{exam_result +1}"
+        - "Фотонная свзяь":
+          - var exam_result: "{exam_result} + 0"
+        - "Протонная связь":
+          - var exam_result: "{exam_result} + 0"
+        - "Орбитальная связь":
+          - var exam_result: "{exam_result} + 0"
+        - "Молекулярная связь":
+          - var exam_result: "{exam_result} + 0"
+      - text: Ещё один готов!
+    - if ({study} <= 15):
+      - text: Для чего нужна Дезоксирибонуклеиновая кислота?..
+      - choice:
+        - "Для хранения, передачи из поколения в поколение и реализации генетической информации":
+          - var exam_result: "{exam_result} + 1"
+        - "Для того, чтобы люди нормально росли":
+          - var exam_result: "{exam_result} + 0"
+        - "Чтобы не болеть":
+          - var exam_result: "{exam_result} + 0"
+        - "Для корректного синтеза белковых молекул в клетках организма животных и растений":
+          - var exam_result: "{exam_result} + 0"
+        - "Она не нужна, это - всего лишь атавизм":
+          - var exam_result: "{exam_result} + 0"
+      - text: Этот последний? Или следующий?
+    - if ({study} <= 10):
+      - text: К какой группе относится углеводов обычно относится обычный сахар?..
+      - choice:
+        - "Олигосахариды":
+          - var exam_result: "{exam_result} + 1"
+        - "Моносахариды":
+          - var exam_result: "{exam_result} + 0"
+        - "Октосахариды":
+          - var exam_result: "{exam_result} + 0"
+        - "Сладориды":
+          - var exam_result: "{exam_result} + 0"
+        - "Омегариды":
+          - var exam_result: "{exam_result} + 0"
+      - text: Ещё один!
+    - if ({study} <= 5):
+      - text: Способность атома химического элемента образовывать связь с другими атомами, а также число этих связей в конкретном соединении - это?..
+      - choice: 
+        - "Валентность":
+          - var exam_result: "{exam_result} + 1"
+        - "Химический уровнь":
+          - var exam_result: "{exam_result} + 0"
+        - "Окисление":
+          - var exam_result: "{exam_result} + 0"
+        - "Плотность":
+          - var exam_result: "{exam_result} + 0"
+        - "Электролиз":
+          - var exam_result: "{exam_result} + 0"
+      - text: Всё, последний!
+  - scene: ending
+
+ending:
+  - if ({exam_result} >= 5):
+    - play calm1:
+    - show university_main: WITH FADE CONTINUE
+    - text: Ну вот, все экзамены прошли и я стою на главной площади. С улыбкой во все тридцать два зуба.
+    - text: В руках у меня - красный диплом. Рядом со мной - верные друзья и одногруппники, которые прошли со мной весь этот путь. Вокруг светло и тепло, настроение - лучше некуда.
+    - text: Что же будет дальше? Мне кажется, что передо мной открыты все двери и я могу всё, что угодно!
+  - else:
+    - if ({exam_result} >= 4):
+      - play calm1:
+      - show university_main: WITH FADE CONTINUE
+      - text: Экзамены закончились. К сожалению, получить себе красный диплом я не смог, но даже так - я отучился и теперь у меня высшее образование.
+      - text: А значит, теперь передо мной - мириады возможностей. Надо будет закончить свое резюме и начать подыскивать работу...
+      - text: Или... Может быть пойти на магистратуру?..
+    - else:
+      - if ({exam_result} >= 3):
+        - play mystic2:
+        - show university_main: WITH FADE CONTINUE
+        - wait: 1000
+        - show un_park1: WITH FADE CONTINUE
+        - wait: 1000
+        - show un_park_tree: WITH FADE CONTINUE
+        - text: Ух... Хочется развеяться. Настроение ни к чёрту - экзамены закончились, но оценки у меня... Нда. 
+        - text: Что же я сделал не так?.. Где я свернул не туда?..
+        - text: Смогу ли я податься с этим результатами на магистратуру?..
+        - show un_park2: WITH FADE CONTINUE
+        - text: Как же много вопросов... И кто же мне на них ответит?..
+      - else:
+        - hide ALL: WITH FADE CONTINUE
+        - play tense1:
+        - text: С провалом экзаменов твоя жизнь становится трудна и турбулентна - теперь всё завсит от волны пересдач.
+        - text: Теперь нужно столько всего успеть. Столько всего выучить...
+        - text: Столько...
+        - wait: 1500
+        - text: Столько...
+        - wait: 1500
+        - text: ...всего...
   - scene: endGame
+
 
 endGame:
   - hide ALL: WITH FADE CONTINUE
@@ -935,7 +1626,7 @@ endGame:
       - null
       - null
       - Thanks for playing
-      - The Quickstart Game
+      - The Live Donstu Game!
       - null
       - background art and cgs by
       - Craiyon
@@ -944,4 +1635,4 @@ endGame:
       - Shida
       - null
       - music by
-      - Evan Schaeffer
+      - A group of merry students
