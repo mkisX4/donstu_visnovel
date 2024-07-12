@@ -5,7 +5,7 @@ class Chemist_game extends RenJS.Plugin {
         const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[4];
         gameBody.style.display = "block";
 
-        gameBody.parentElement.setAttribute('style', 'background-image: url(http://127.0.0.1:5500/games/Chemist/images/xim.jpg); background-repeat: no-repeat; background-position: center');
+        gameBody.parentElement.setAttribute('style', 'background-image: url(/games/Chemist/images/xim.jpg); background-repeat: no-repeat; background-position: center');
 
         let greeting = document.createElement('div');
         greeting.classList.add('text');
@@ -15,7 +15,7 @@ class Chemist_game extends RenJS.Plugin {
         gameBody.appendChild(greeting);
 
         let main_container = document.createElement('div');
-        main_container.classList.add('container');
+        main_container.classList.add('C-container');
         let substances_container = document.createElement('div');
         substances_container.classList.add('substances');
         let substance_array = [["Натрий(Na)","Na"],["Хлор(Cl)","Cl"],["Водород(H2)","H2"],["Водород(H)", "H"],["Кислород(O2)","O2"],["Железо(Fe)","Fe"],["Кислород(O)","O"],["Сера(S)","S"],["Углерод(C)","C"],["Алюминий(Al)","Al"],["Фтор(F)","F"],["Медь(Cu)","Cu"],["Кальций(Ca)","Ca"],["Фтористый водород(HF)","HF"],["Калий(K)","K"],["Бром(Br)","Br"],["Магний(Mg)","Mg"],["Вода(H2O)","H2O"],["Азот(N)","N"],["Фосфор(P)","P"],["Свинец(Pb)","Pb"],["Карбонат Кальция(CaCO3)","CaCO3"],["Йод(I)","I"],["Литий(Li)","Li"]];

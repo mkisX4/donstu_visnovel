@@ -143,7 +143,7 @@ body {
 
 /*AssembleWords game styles*/
 
-.container {
+.AW-container {
     max-width: 300px;
     margin: 20px auto;
     
@@ -234,7 +234,7 @@ li {
     font-size: 24px;
 }
 
-.container {
+.CS-container {
 
     text-align: center;
     background: rgba(255, 255, 255, 0.6);
@@ -340,6 +340,15 @@ button {
 
 /*Chemist game styles*/
 
+.C-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Изменено на space-between */
+    padding: 10px;
+    width: 400px;
+  }
+
 .substances {
     display: grid;
     grid-template-columns: repeat(8, 180px);
@@ -349,8 +358,8 @@ button {
   }
   
   
-  /* элементы */
-  .substance {
+/* элементы */
+.substance {
     opacity: 90%;
     width: 180px;
     height: 100px;
@@ -361,16 +370,15 @@ button {
     cursor: pointer;
     transition: transform 0.3s;
     border: 2px solid transparent;
-    
   }
   
-  .substance:hover {
+.substance:hover {
     transform: scale(1.1);
   }
   
   
   /* правый блок */
-  .result {
+.result {
     width: 300px;
     height: 200px;
     background-color: #05573e;

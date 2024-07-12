@@ -5,11 +5,11 @@ class AssembleWords_game extends RenJS.Plugin {
     const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[1];
     gameBody.style.display = "block";
 
-    gameBody.parentElement.setAttribute('style', 'background-image: url(http://127.0.0.1:5500/games/AssembleWords/images/library.png); background-repeat: no-repeat; background-position: center');
+    gameBody.parentElement.setAttribute('style', 'background-image: url(/games/AssembleWords/images/library.png); background-repeat: no-repeat; background-position: center');
 
 
     let main_container = document.createElement('div');
-    main_container.classList.add('container');
+    main_container.classList.add('AW-container');
     let main_card = document.createElement('div');
     main_card.classList.add('card');
 

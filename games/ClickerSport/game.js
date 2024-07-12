@@ -5,7 +5,7 @@ class ClickerSport_game extends RenJS.Plugin {
         const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[3];
         gameBody.style.display = "block";
 
-        gameBody.parentElement.setAttribute('style', 'background-image: url(http://127.0.0.1:5500/games/ClickerSport/images/sportzal.jpg); background-repeat: no-repeat; background-position: center');
+        gameBody.parentElement.setAttribute('style', 'background-image: url(/games/ClickerSport/images/sportzal.jpg); background-repeat: no-repeat; background-position: center');
 
         let header = document.createElement('header');
         header.classList.add('header-title');
@@ -62,7 +62,7 @@ class ClickerSport_game extends RenJS.Plugin {
         main_div.appendChild(skill_menu_div);
 
         let container_div = document.createElement('div');
-        container_div.classList.add('container');
+        container_div.classList.add('CS-container');
         let title_div = document.createElement('div');
         title_div.classList.add('titul');
         let title_span = document.createElement('span');
