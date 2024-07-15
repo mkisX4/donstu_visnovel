@@ -11,6 +11,7 @@ class GameMap extends RenJS.Plugin {
       TheGame.resolveAction();
       mapBody.innerHTML='';
       mapBody.style.display = "none";
+      TheGame.canvas.style.marginRight = '0px';
       TheGame.canvas.style.display = "block";
     }
 
@@ -53,7 +54,8 @@ class GameMap extends RenJS.Plugin {
         document.getElementById('morning_walk').addEventListener('click', () => {
           mapBody.innerHTML='';
           mapBody.style.display = "none";
-          TheGame.canvas.style.display = "block";
+          TheGame.canvas.style.marginRight = '0px';
+          TheGame.canvas.style.display = "block";          
           TheGame.managers.story.startScene('morning_walk_' + morning_type);
           TheGame.resolveAction();
         });
@@ -71,6 +73,7 @@ class GameMap extends RenJS.Plugin {
         document.getElementById('day_study').addEventListener('click', () => {
           mapBody.innerHTML='';
           mapBody.style.display = "none";
+          TheGame.canvas.style.marginRight = '0px';
           TheGame.canvas.style.display = "block";
           switch(TheGame.managers.logic.vars['mc_type']){
             case 'technical':
@@ -111,6 +114,7 @@ class GameMap extends RenJS.Plugin {
         document.getElementById('day_friendly').addEventListener('click', () => {
           mapBody.innerHTML='';
           mapBody.style.display = "none";
+          TheGame.canvas.style.marginRight = '0px';
           TheGame.canvas.style.display = "block";
           TheGame.managers.story.startScene('friend_meeting_' + day_type);
           TheGame.resolveAction();
@@ -133,6 +137,7 @@ class GameMap extends RenJS.Plugin {
         document.getElementById('evening_study').addEventListener('click', () => {
           mapBody.innerHTML='';
           mapBody.style.display = "none";
+          TheGame.canvas.style.marginRight = '0px';
           TheGame.canvas.style.display = "block";
           switch(TheGame.managers.logic.vars['mc_type']){
             case 'technical':
@@ -159,6 +164,7 @@ class GameMap extends RenJS.Plugin {
         document.getElementById('evening_rest').addEventListener('click', () => {
           mapBody.innerHTML='';
           mapBody.style.display = "none";
+          TheGame.canvas.style.marginRight = '0px';
           TheGame.canvas.style.display = "block";
           TheGame.managers.story.startScene('evening_' + evening_type);
           TheGame.resolveAction();
@@ -169,6 +175,7 @@ class GameMap extends RenJS.Plugin {
         TheGame.managers.logic.vars['day']++;
         mapBody.innerHTML='';
         mapBody.style.display = "none";
+        TheGame.canvas.style.marginRight = '0px';
         TheGame.canvas.style.display = "block";
         TheGame.managers.story.startScene('rest_short');
         TheGame.resolveAction();

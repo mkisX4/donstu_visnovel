@@ -146,7 +146,6 @@ body {
 .AW-container {
     max-width: 300px;
     margin: 20px auto;
-    
 }
 
 .card {
@@ -194,6 +193,38 @@ body {
     margin-left: 7px;
 }
 
+/*SpotTheDifference game styles*/
+
+.STD-container{
+    text-align: center;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.differences {
+    display: grid;
+    width: 90%;
+    height: 70%;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 80%);
+    justify-content: center;
+    gap: 20px;
+  }
+
+.imagediff{
+    background-image: none;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 90%;
+}
+
 /*ClickerSport game styles*/
 
 li {
@@ -235,7 +266,6 @@ li {
 }
 
 .CS-container {
-
     text-align: center;
     background: rgba(255, 255, 255, 0.6);
     padding: 10px;

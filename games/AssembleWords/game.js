@@ -135,6 +135,7 @@ class AssembleWords_game extends RenJS.Plugin {
         gameBody.parentElement.setAttribute('style', 'margin-top: 0px; margin-bottom: 0px; margin-left: 0px;margin-right: 0px;');
         TheGame.managers.logic.vars["is_game_won"] = true;
         gameBody.style.display = "none";
+        TheGame.canvas.style.marginRight = '0px';
         TheGame.canvas.style.display = "block";
         TheGame.resolveAction();
       }

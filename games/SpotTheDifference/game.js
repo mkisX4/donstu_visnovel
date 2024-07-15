@@ -5,29 +5,76 @@ class SpotTheDifference_game extends RenJS.Plugin {
         const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[2];
         gameBody.style.display = "block";
 
-        let win_button = document.createElement('Button');
-        win_button.id = 'win_button';
-        win_button.innerHTML = 'Победа!';
-        gameBody.appendChild(win_button);
-        let lose_button = document.createElement('Button');
-        lose_button.id = 'lose_button';
-        lose_button.innerHTML = 'Поражение...';
-        gameBody.appendChild(lose_button);
+        let main_container = document.createElement('div');
+        main_container.classList.add('STD-container');
+        let head_text = document.createElement('h3');
+        head_text.innerHTML = 'Добро пожаловать в мини-игру «Поиск различий»!';
+        main_container.appendChild(head_text);
+        let diff_counter = document.createElement('h4');
+        diff_counter.innerHTML = 'Осталось отличий: N/A';
+        main_container.appendChild(diff_counter);
+        let image_div = document.createElement('div');
+        image_div.classList.add('differences');
+        let image_left = document.createElement('img');
+        image_left.classList.add('imagediff');
+        image_left.src = 'games/SpotTheDifference/images/Day' + TheGame.managers.logic.vars['day'] + '_left.png';
+        let image_right = document.createElement('img');
+        image_right.classList.add('imagediff');
+        image_right.src = 'games/SpotTheDifference/images/Day' + TheGame.managers.logic.vars['day'] + '_right.png';
+        
+        switch(TheGame.managers.logic.vars['day']){
+            case 1:
+                let day1_diff_1 = document.createElement('button');
+                day1_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                day1_diff_1.style.height = '30px';
+                day1_diff_1.style.width = '30px';
+                let day1_diff_2 = document.createElement('button');
+                day1_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day1_diff_3 = document.createElement('button');
+                day1_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                image_left.appendChild(day1_diff_1);
+                image_right.appendChild(day1_diff_1);
+                break;
+            case 2:
+                let day2_diff_1 = document.createElement('button');
+                day2_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day2_diff_2 = document.createElement('button');
+                day2_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day2_diff_3 = document.createElement('button');
+                day2_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day2_diff_4 = document.createElement('button');
+                day2_diff_4.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                break;
+            case 3:
+                let day3_diff_1 = document.createElement('button');
+                day3_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day3_diff_2 = document.createElement('button');
+                day3_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day3_diff_3 = document.createElement('button');
+                day3_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                break;
+            case 4:
+                let day4_diff_1 = document.createElement('button');
+                day4_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day4_diff_2 = document.createElement('button');
+                day4_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day4_diff_3 = document.createElement('button');
+                day4_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                break;
+            case 5:
+                let day5_diff_1 = document.createElement('button');
+                day5_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day5_diff_2 = document.createElement('button');
+                day5_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                let day5_diff_3 = document.createElement('button');
+                day5_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                break;
+        }
+        image_div.appendChild(image_left);
+        image_div.appendChild(image_right);
+        main_container.appendChild(image_div);
 
-        document.getElementById('win_button').addEventListener('click', () => {
-            gameBody.innerHTML = "";
-                gameBody.style.display = "none";
-                TheGame.managers.logic.vars["is_game_won"] = true;
-                TheGame.canvas.style.display = "block";
-                TheGame.resolveAction();
-        });
-
-        document.getElementById('lose_button').addEventListener('click', () => {
-            gameBody.innerHTML = "";
-                gameBody.style.display = "none";
-                TheGame.canvas.style.display = "block";
-                TheGame.resolveAction();
-        });
+        gameBody.appendChild(main_container);
     }
 }
 

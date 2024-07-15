@@ -221,6 +221,7 @@ class ClickerSport_game extends RenJS.Plugin {
                 gameBody.innerHTML = "";
                 gameBody.style.display = "none";
                 TheGame.managers.logic.vars["is_game_won"] = true;
+                TheGame.canvas.style.marginRight = '0px';
                 TheGame.canvas.style.display = "block";
                 TheGame.resolveAction();
             }

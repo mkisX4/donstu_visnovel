@@ -74,6 +74,7 @@ class Chemist_game extends RenJS.Plugin {
             gameBody.innerHTML = "";
                 gameBody.style.display = "none";
                 TheGame.managers.logic.vars["is_game_won"] = true;
+                TheGame.canvas.style.marginRight = '0px';
                 TheGame.canvas.style.display = "block";
                 TheGame.resolveAction();
         });
@@ -81,6 +82,7 @@ class Chemist_game extends RenJS.Plugin {
         document.getElementById('lose_button').addEventListener('click', () => {
             gameBody.innerHTML = "";
                 gameBody.style.display = "none";
+                TheGame.canvas.style.marginRight = '0px';
                 TheGame.canvas.style.display = "block";
                 TheGame.resolveAction();
         });

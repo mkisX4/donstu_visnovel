@@ -67,6 +67,7 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
             board.remove();
             gameBody.style.display = "none";
             TheGame.managers.logic.vars["is_game_won"] = true;
+            TheGame.canvas.style.marginRight = '0px';
             TheGame.canvas.style.display = "block";
             TheGame.resolveAction();
         }
@@ -102,6 +103,7 @@ class OneHundredTwentyEight_game extends RenJS.Plugin {
         // GameOver
         board.remove();
         gameBody.style.display = "none";
+        TheGame.canvas.style.marginRight = '0px';
         TheGame.canvas.style.display = "block";
         TheGame.resolveAction();
     }

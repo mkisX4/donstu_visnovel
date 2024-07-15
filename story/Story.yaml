@@ -14,7 +14,7 @@ start:
       - text: "Так что в приподнятом расположении духа я направляюсь к себе в комнату. Нужно проверить, всё ли я собрал на завтра..."
     - "...Гуманитария...":
       - var mc_type: humanitarian
-      - text: "...подикдывает лимоны, ещё и достаточно кислые, но лимонад-то сделать можно и из них. Всё не так уж плохо. Долгов с прошлого года нет, срочных дел - тоже."
+      - text: "...подкидывает лимоны, ещё и достаточно кислые, но лимонад-то сделать можно и из них. Всё не так уж плохо. Долгов с прошлого года нет, срочных дел - тоже."
       - text: "Кажется, скоро уже свечереет. Интересно, где мой портфель?.."
     - "...Дизайнера...":
       - var mc_type: designer
@@ -40,7 +40,7 @@ theFirstHomeRest:
   - play calm1:
   - if ({mc_type} == 'technical'):
     - show student_room_technical: WITH FADE CONTINUE
-    - text: "Вот и я и дома. Так-с всё сообрано, отлично. Значит, беспокоиться не о чем и завтра всё будет хорошо."
+    - text: "Вот и я и дома. Так-с всё собрано, отлично. Значит, беспокоиться не о чем и завтра всё будет хорошо."
     - text: "Ну что же, вечерок у меня свободен, значит, можно будет наконец-то допройти любимую игрушку. Поехали!"
     - hide ALL: WITH FADE CONTINUE
     - wait: 900
@@ -117,7 +117,10 @@ OneHundredTwentyEight:
     - play victory:
     - show un_hall1: WITH FADE CONTINUE
     - text: "Отлично, с этим разобрались! Фух, теперь можно и прогуляться."
-    - var study: "{study} + 5"
+    - if ({time} == 2):
+      - var study: "{study} + 5"
+    - else:
+      - var study: "{study} + 3"
     - var time: "{time} + 1"
     - wait: 800
     - show un_stairs_f1: WITH FADE CONTINUE
@@ -140,7 +143,10 @@ AssembleWords:
     - play victory:
     - show un_hall1: WITH FADE CONTINUE
     - text: "Дело я сдлелал - теперь можно гулять смело."
-    - var study: "{study + 5}"
+    - if ({time} == 2):
+      - var study: "{study} + 5"
+    - else:
+      - var study: "{study} + 3"
     - var time: "{time} + 1"
     - wait: 800
     - show un_stairs_f1: WITH FADE CONTINUE
@@ -163,7 +169,10 @@ SpotTheDifference:
     - play victory:
     - show un_hall1: WITH FADE CONTINUE
     - text: "Хм... Неплохо вроде бы получилось."
-    - var study: "{study + 5}"
+    - if ({time} == 2):
+      - var study: "{study} + 5"
+    - else:
+      - var study: "{study} + 3"
     - var time: "{time} + 1"
     - wait: 800
     - show un_stairs_f1: WITH FADE CONTINUE
@@ -186,7 +195,10 @@ SportClicker:
     - play victory:
     - show un_hall1: WITH FADE CONTINUE
     - text: "И раз! И два! И раз-два-три! Всё, это всё на сегодня!"
-    - var study: "{study + 5}"
+    - if ({time} == 2):
+      - var study: "{study} + 5"
+    - else:
+      - var study: "{study} + 3"
     - var time: "{time} + 1"
     - wait: 800
     - show un_stairs_f1: WITH FADE CONTINUE
@@ -210,7 +222,10 @@ Chemist:
     - play victory:
     - show un_hall1: WITH FADE CONTINUE
     - text: "Вот так, а это сюда и в итоге... О, уже всё? Ладно, завтра продолжим."
-    - var study: "{study + 5}"
+    - if ({time} == 2):
+      - var study: "{study} + 5"
+    - else:
+      - var study: "{study} + 3"
     - var time: "{time} + 1"
     - wait: 800
     - show un_stairs_f1: WITH FADE CONTINUE
@@ -1580,14 +1595,14 @@ ending:
     - text: "В руках у меня - красный диплом. Рядом со мной - верные друзья и одногруппники, которые прошли со мной весь этот путь. Вокруг светло и тепло, настроение - лучше некуда."
     - text: "Что же будет дальше? Мне кажется, что передо мной открыты все двери и я могу всё, что угодно!"
   - else:
-    - if ({exam_result} >= 4):
+    - if ({exam_result} = 4):
       - play calm1:
       - show university_main: WITH FADE CONTINUE
       - text: "Экзамены закончились. К сожалению, получить себе красный диплом я не смог, но даже так - я отучился и теперь у меня высшее образование."
       - text: "А значит, теперь передо мной - мириады возможностей. Надо будет закончить свое резюме и начать подыскивать работу..."
       - text: "Или... Может быть пойти на магистратуру?.."
     - else:
-      - if ({exam_result} >= 3):
+      - if ({exam_result} = 3):
         - play mystic2:
         - show university_main: WITH FADE CONTINUE
         - wait: 1000
