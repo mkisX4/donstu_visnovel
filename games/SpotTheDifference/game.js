@@ -1,5 +1,7 @@
 class SpotTheDifference_game extends RenJS.Plugin {
     onCall(){
+        let fail_count = 0;
+        let differences_count = 0;
         const TheGame = this.game
         TheGame.canvas.style.display = "none";
         const gameBody = TheGame.canvas.parentElement.getElementsByTagName("div")[2];
@@ -15,59 +17,182 @@ class SpotTheDifference_game extends RenJS.Plugin {
         main_container.appendChild(diff_counter);
         let image_div = document.createElement('div');
         image_div.classList.add('differences');
-        let image_left = document.createElement('img');
+        let image_left = document.createElement('div');
         image_left.classList.add('imagediff');
-        image_left.src = 'games/SpotTheDifference/images/Day' + TheGame.managers.logic.vars['day'] + '_left.png';
-        let image_right = document.createElement('img');
+        let left_inner = document.createElement('img');
+        left_inner.classList.add('imagediff');
+        left_inner.src = 'games/SpotTheDifference/images/Day' + TheGame.managers.logic.vars['day'] + '_left.png';
+        image_left.appendChild(left_inner);
+        let image_right = document.createElement('div');
         image_right.classList.add('imagediff');
-        image_right.src = 'games/SpotTheDifference/images/Day' + TheGame.managers.logic.vars['day'] + '_right.png';
+        let right_inner = document.createElement('img');
+        right_inner.classList.add('imagediff');
+        right_inner.src = 'games/SpotTheDifference/images/Day' + TheGame.managers.logic.vars['day'] + '_right.png';
+        image_right.appendChild(right_inner);
         
         switch(TheGame.managers.logic.vars['day']){
             case 1:
-                let day1_diff_1 = document.createElement('button');
-                day1_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                day1_diff_1.style.height = '30px';
-                day1_diff_1.style.width = '30px';
-                let day1_diff_2 = document.createElement('button');
-                day1_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day1_diff_3 = document.createElement('button');
-                day1_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                image_left.appendChild(day1_diff_1);
-                image_right.appendChild(day1_diff_1);
+                differences_count = 3;
+                let day1_diff_1_left = document.createElement('button');
+                day1_diff_1_left.classList.add('diffbutton');
+                day1_diff_1_left.id = 'l1';
+                day1_diff_1_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 50px; width: 50px; top: -66%; left: -30%;");
+                image_left.appendChild(day1_diff_1_left);
+                let day1_diff_1_right = document.createElement('button');
+                day1_diff_1_right.id = 'r1';
+                day1_diff_1_right.classList.add('diffbutton');
+                day1_diff_1_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 50px; width: 50px; top: -66%; left: -30%;");
+                image_right.appendChild(day1_diff_1_right);
+
+                let day1_diff_2_left = document.createElement('button');
+                day1_diff_2_left.classList.add('diffbutton');
+                day1_diff_2_left.id = 'l2';
+                day1_diff_2_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 35px; width: 68px; top: -95%; left: 0%;");
+                image_left.appendChild(day1_diff_2_left);
+                let day1_diff_2_right = document.createElement('button');
+                day1_diff_2_right.classList.add('diffbutton');
+                day1_diff_2_right.id = 'r2';
+                day1_diff_2_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 35px; width: 68px; top: -95%; left: 0%;");
+                image_right.appendChild(day1_diff_2_right);
+
+                let day1_diff_3_left = document.createElement('button');
+                day1_diff_3_left.classList.add('diffbutton');
+                day1_diff_3_left.id = 'l3';
+                day1_diff_3_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 40px; top: -62%; left: 11%;");
+                image_left.appendChild(day1_diff_3_left);
+                let day1_diff_3_right = document.createElement('button');
+                day1_diff_3_right.classList.add('diffbutton');
+                day1_diff_3_right.id = 'r3';
+                day1_diff_3_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 40px; top: -62%; left: 11%;");
+                image_right.appendChild(day1_diff_3_right);
                 break;
             case 2:
-                let day2_diff_1 = document.createElement('button');
-                day2_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day2_diff_2 = document.createElement('button');
-                day2_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day2_diff_3 = document.createElement('button');
-                day2_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day2_diff_4 = document.createElement('button');
-                day2_diff_4.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                differences_count = 4;
+                let day2_diff_1_left = document.createElement('button');
+                day2_diff_1_left.classList.add('diffbutton');
+                day2_diff_1_left.id = 'l1';
+                day2_diff_1_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 75px; width: 45px; top: -48%; left: -15%;");
+                image_left.appendChild(day2_diff_1_left);
+                let day2_diff_1_right = document.createElement('button');
+                day2_diff_1_right.id = 'r1';
+                day2_diff_1_right.classList.add('diffbutton');
+                day2_diff_1_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 75px; width: 45px; top: -48%; left: -15%;");
+                image_right.appendChild(day2_diff_1_right);
+
+                let day2_diff_2_left = document.createElement('button');
+                day2_diff_2_left.classList.add('diffbutton');
+                day2_diff_2_left.id = 'l2';
+                day2_diff_2_left.setAttribute("style", "color: black; background-color: transparent; border-color: transparent; outline: 0; height: 42px; width: 120px; top: -17%; left: -3%;");
+                image_left.appendChild(day2_diff_2_left);
+                let day2_diff_2_right = document.createElement('button');
+                day2_diff_2_right.id = 'r2';
+                day2_diff_2_right.classList.add('diffbutton');
+                day2_diff_2_right.setAttribute("style", "color: black; background-color: transparent; border-color: transparent; outline: 0; height: 42px; width: 120px; top: -17%; left: -3%;");
+                image_right.appendChild(day2_diff_2_right);
+                
+                let day2_diff_3_left = document.createElement('button');
+                day2_diff_3_left.classList.add('diffbutton');
+                day2_diff_3_left.id = 'l3';
+                day2_diff_3_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 60px; width: 60px; top: -78%; left: -7%;");
+                image_left.appendChild(day2_diff_3_left);
+                let day2_diff_3_right = document.createElement('button');
+                day2_diff_3_right.id = 'r3';
+                day2_diff_3_right.classList.add('diffbutton');
+                day2_diff_3_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 60px; width: 60px; top: -78%; left: -7%;");
+                image_right.appendChild(day2_diff_3_right);
+
+                let day2_diff_4_left = document.createElement('button');
+                day2_diff_4_left.classList.add('diffbutton');
+                day2_diff_4_left.id = 'l4';
+                day2_diff_4_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 40px; top: -87%; left: 27%;");
+                image_left.appendChild(day2_diff_4_left);
+                let day2_diff_4_right = document.createElement('button');
+                day2_diff_4_right.id = 'r4';
+                day2_diff_4_right.classList.add('diffbutton');
+                day2_diff_4_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 40px; top: -87%; left: 27%;");
+                image_right.appendChild(day2_diff_4_right);
                 break;
             case 3:
-                let day3_diff_1 = document.createElement('button');
-                day3_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day3_diff_2 = document.createElement('button');
-                day3_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day3_diff_3 = document.createElement('button');
-                day3_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                differences_count = 3;
+                let day3_diff_1_left = document.createElement('button');
+                day3_diff_1_left.classList.add('diffbutton');
+                day3_diff_1_left.id = 'l1';
+                day3_diff_1_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 114px; top: -67%; left: -39%;");
+                image_left.appendChild(day3_diff_1_left);
+                let day3_diff_1_right = document.createElement('button');
+                day3_diff_1_right.id = 'r1';
+                day3_diff_1_right.classList.add('diffbutton');
+                day3_diff_1_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 114px; top: -67%; left: -39%;");
+                image_right.appendChild(day3_diff_1_right);
+
+                let day3_diff_2_left = document.createElement('button');
+                day3_diff_2_left.classList.add('diffbutton');
+                day3_diff_2_left.id = 'l2';
+                day3_diff_2_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 50px; width: 30px; top: -43%; left: -16%;");
+                image_left.appendChild(day3_diff_2_left);
+                let day3_diff_2_right = document.createElement('button');
+                day3_diff_2_right.id = 'r2';
+                day3_diff_2_right.classList.add('diffbutton');
+                day3_diff_2_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 50px; width: 30px; top: -43%; left: -16%;");
+                image_right.appendChild(day3_diff_2_right);
+
+                let day3_diff_3_left = document.createElement('button');
+                day3_diff_3_left.classList.add('diffbutton');
+                day3_diff_3_left.id = 'l3';
+                day3_diff_3_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 45px; width: 45px; top: -79%; left: -11%;");
+                image_left.appendChild(day3_diff_3_left);
+                let day3_diff_3_right = document.createElement('button');
+                day3_diff_3_right.id = 'r3';
+                day3_diff_3_right.classList.add('diffbutton');
+                day3_diff_3_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 45px; width: 45px; top: -79%; left: -11%;");
+                image_right.appendChild(day3_diff_3_right);
                 break;
             case 4:
-                let day4_diff_1 = document.createElement('button');
-                day4_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day4_diff_2 = document.createElement('button');
-                day4_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day4_diff_3 = document.createElement('button');
-                day4_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                differences_count = 3;
+                let day4_diff_1_left = document.createElement('button');
+                day4_diff_1_left.classList.add('diffbutton');
+                day4_diff_1_left.id = 'l1';
+                day4_diff_1_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 30px; top: -51%; left: -31%;");
+                image_left.appendChild(day4_diff_1_left);
+                let day4_diff_1_right = document.createElement('button');
+                day4_diff_1_right.id = 'r1';
+                day4_diff_1_right.classList.add('diffbutton');
+                day4_diff_1_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 40px; width: 30px; top: -51%; left: -31%;");
+                image_right.appendChild(day4_diff_1_right);
+
+                let day4_diff_2_left = document.createElement('button');
+                day4_diff_2_left.classList.add('diffbutton');
+                day4_diff_2_left.id = 'l2';
+                day4_diff_2_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 56px; width: 28px; top: -22.5%; left: -10%;");
+                image_left.appendChild(day4_diff_2_left);
+                let day4_diff_2_right = document.createElement('button');
+                day4_diff_2_right.id = 'r2';
+                day4_diff_2_right.classList.add('diffbutton');
+                day4_diff_2_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 56px; width: 28px; top: -22.5%; left: -10%;");
+                image_right.appendChild(day4_diff_2_right);
+
+                let day4_diff_3_left = document.createElement('button');
+                day4_diff_3_left.classList.add('diffbutton');
+                day4_diff_3_left.id = 'l3';
+                day4_diff_3_left.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 100px; width: 45px; top: -27%; left: 2%;");
+                image_left.appendChild(day4_diff_3_left);
+                let day4_diff_3_right = document.createElement('button');
+                day4_diff_3_right.id = 'r3';
+                day4_diff_3_right.classList.add('diffbutton');
+                day4_diff_3_right.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0; height: 100px; width: 45px; top: -27%; left: 2%;");
+                image_right.appendChild(day4_diff_3_right);
                 break;
             case 5:
-                let day5_diff_1 = document.createElement('button');
-                day5_diff_1.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day5_diff_2 = document.createElement('button');
-                day5_diff_2.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
-                let day5_diff_3 = document.createElement('button');
-                day5_diff_3.setAttribute("style", "color: transparent; background-color: transparent; border-color: transparent; outline: 0;");
+                document.getElementsByTagName('h3')[0].innerHTML = 'Опачки, а вот это пасхалка! Тебя тут вообще-то быть не должно, ты в курсе, да?';
+                document.getElementsByTagName('h4')[0].innerHTML = 'Ладно, в этот раз тебе ничего не сделаем, иди с миром.';
+                setTimeout(() => {
+                    gameBody.innerHTML = "";
+                    gameBody.style.display = "none";
+                    TheGame.managers.logic.vars["is_game_won"] = true;
+                    TheGame.canvas.style.marginRight = '0px';
+                    TheGame.canvas.style.display = "block";
+                    TheGame.resolveAction();
+                  }, 3333)
                 break;
         }
         image_div.appendChild(image_left);
@@ -75,6 +200,29 @@ class SpotTheDifference_game extends RenJS.Plugin {
         main_container.appendChild(image_div);
 
         gameBody.appendChild(main_container);
+        document.getElementsByTagName('h4')[0].innerHTML = 'Осталось отличий: ' + differences_count;
+        let buttons = Array.from(document.getElementsByClassName('diffbutton'));
+        for (let b = 0; b< buttons.length; b++){
+            buttons[b].addEventListener('click', (event) => {
+                document.getElementById('l' + event.target.id.replace(/\D/g, "")).style.borderColor = "#ff4922";
+                document.getElementById('l' + event.target.id.replace(/\D/g, "")).disabled = true;
+                document.getElementById('r' + event.target.id.replace(/\D/g, "")).style.borderColor = "#ff4922";
+                document.getElementById('r' + event.target.id.replace(/\D/g, "")).disabled = true;
+                differences_count -= 1;
+                document.getElementsByTagName('h4')[0].innerHTML = 'Осталось отличий: ' + differences_count;
+                if(differences_count <= 0){
+                    document.getElementsByTagName('h3')[0].innerHTML = "▛ ▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▘▜ <br> Поздравляем с победой! Через пять секунд вы вернётесь к новелле! <br> ▙ ▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▖▟";
+                    setTimeout(() => {
+                        gameBody.innerHTML = "";
+                        gameBody.style.display = "none";
+                        TheGame.managers.logic.vars["is_game_won"] = true;
+                        TheGame.canvas.style.marginRight = '0px';
+                        TheGame.canvas.style.display = "block";
+                        TheGame.resolveAction();
+                      }, 5000)
+                }
+            });
+        }
     }
 }
 
