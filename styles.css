@@ -395,7 +395,6 @@ button {
     align-items: center;
     justify-content: space-between; /* Изменено на space-between */
     padding: 10px;
-    width: 400px;
   }
 
 .substances {
@@ -424,9 +423,49 @@ button {
 .substance:hover {
     transform: scale(1.1);
   }
+
+.substance-random {
+    opacity: 90%;
+    width: 180px;
+    height: 100px;
+    background-color: #a1650a;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border: 2px solid transparent;
+  }
   
+.substance-random:hover {
+    transform: scale(1.1);
+  }
+
+.substance-combined {
+    opacity: 90%;
+    width: 180px;
+    height: 100px;
+    background-color: #15a6b9;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border: 2px solid transparent;
+  }
+  
+.substance-combined:hover {
+    transform: scale(1.1);
+  }
   
   /* правый блок */
+.result-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .result {
     width: 300px;
     height: 200px;
